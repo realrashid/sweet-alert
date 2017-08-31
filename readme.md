@@ -71,8 +71,6 @@ Then, in your view.
 @endif
 ```
 
-![SweetAlert example](https://s3.amazonaws.com/s3.codecourse.com/github/alert/swal-example.png)
-
 > The above example uses SweetAlert, but the flexibily of alert means you can easily use it with any JavaScript alert solution.
 
 # Issues and contribution
