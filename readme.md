@@ -1,24 +1,48 @@
+# Introduction
+
+A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAVASCRIPT'S POPUP BOXES
+
+ZERO DEPENDENCIES
+
 # Install
 
-Using Composer
+To get started with SweetAlert, use Composer to add the package to your project's dependencies:
 
 ```
 composer require rashidali05/sweet-alert
 ```
 
-Add the service provider to `config/app.php`
+## Configuration
+
+After installing the SweetAlert library, register the `RashidAli05\SweetAlert\SweetAlertServiceProvider::class` in your `config/app.php` configuration file:
 
 ```php
-RashidAli05\SweetAlert\SweetAlertServiceProvider::class,
+'providers' => [
+    // Other service providers...
+
+    RashidAli05\SweetAlert\SweetAlertServiceProvider::class,
+],
 ```
 
-Optionally include the Facade in `config/app.php` if you'd like.
+Also, add the `SweetAlert` facade to the `aliases` array in your `app` configuration file:
 
 ```php
 'Alert' => RashidAli05\SweetAlert\Facades\Alert::class,
 ```
 
 > Note, there is a alert() function available, so unless you really want to use the Facade, there's no need to include it.
+
+### Import SweetAlert Libraries
+
+in your views
+
+```css
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
+```
+
+```javascript
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
+```
 
 # Usage
 
@@ -76,3 +100,7 @@ Then, in your view.
 # Issues and contribution
 
 Just submit an issue or pull request through GitHub. Thanks!
+
+# License
+
+SweetAlert is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
