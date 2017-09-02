@@ -1,5 +1,4 @@
 <p align="center">
-<a href="https://travis-ci.org/rashidali05/sweet-alert"><img src="https://travis-ci.org/rashidali05/sweet-alert.svg?branch=master" alt="Build Status"></a>
 <a href="https://packagist.org/packages/rashidali05/sweet-alert"><img src="https://poser.pugx.org/rashidali05/sweet-alert/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/rashidali05/sweet-alert"><img src="https://poser.pugx.org/rashidali05/sweet-alert/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/rashidali05/sweet-alert"><img src="https://poser.pugx.org/rashidali05/sweet-alert/license.svg" alt="License"></a>
