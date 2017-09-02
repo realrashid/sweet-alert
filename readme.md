@@ -4,8 +4,6 @@ A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAV
 
 ZERO DEPENDENCIES
 
-[See SweetAlert in action!](https://limonte.github.io/sweetalert2/)
-
 ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/intro.PNG)
 
 # Install
