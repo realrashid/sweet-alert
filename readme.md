@@ -1,5 +1,5 @@
 <p align="center">
-<a href="https://travis-ci.org/rashidali05/sweet-alert"><img src="https://travis-ci.org/rashidali05/sweet-alert.svg" alt="Build Status"></a>
+<a href="https://travis-ci.org/rashidali05/sweet-alert"><img src="https://travis-ci.org/rashidali05/sweet-alert.svg?branch=master" alt="Build Status"></a>
 <a href="https://packagist.org/packages/rashidali05/sweet-alert"><img src="https://poser.pugx.org/rashidali05/sweet-alert/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/rashidali05/sweet-alert"><img src="https://poser.pugx.org/rashidali05/sweet-alert/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/rashidali05/sweet-alert"><img src="https://poser.pugx.org/rashidali05/sweet-alert/license.svg" alt="License"></a>
@@ -168,7 +168,9 @@ in view
 @endif
 ```
 
-![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/auto-close.PNG)
+<p align="center">
+    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/auto-close.PNG" alt="">
+</p>
 
 Custom HTML description and buttons!
 
@@ -303,6 +305,29 @@ in view
 
 Just submit an issue or pull request through GitHub. Thanks!
 
+
 # License
 
 SweetAlert is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+## Author
+
+- Email: rashidali.pk99@gmail.com
+- Twitter: http://twitter.com/rashidali05
+- Facebook: https://www.facebook.com/rashidali05
+- GitHub: https://github.com/rashidali05
+
+Made with :heart: in **Pakistan**
+
+## Rashid  – Coming Soon Responsive Template
+
+**Rashid  – Coming Soon Responsive Template** is the perfect template for your freelancer/web agencies!
+
+Tested on Chrome 26.0, Firefox 20.0, Safari 5.1.7, IE 10, Opera 16.0. Limited support for IE8/9.
+
+[Check out the demo here.](http://rashidali05.github.io/Rashid-Coming-Soon-Responsive-Template/demo/)
+
+<p align="center">
+    <a href="https://github.com/rashidali05/Rashid-Coming-Soon-Responsive-Template/" target="_blank">
+    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/rashid-coming-soon.PNG"/></a>
+</p>
