@@ -8,7 +8,7 @@
   "license": "MIT",
   "require": {
     "php": ">=5.4.0",
-    "illuminate/support": "~5.4",
+    "illuminate/support": "~5.4"
   },
   "autoload": {
     "psr-0": {
@@ -18,7 +18,6 @@
       "src/RashidAli05/SweetAlert/functions.php"
     ]
   },
-
   "extra": {
         "branch-alias": {
             "dev-master": "3.0-dev"
