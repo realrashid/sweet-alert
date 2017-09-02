@@ -8,7 +8,7 @@
   "license": "MIT",
   "require": {
     "php": ">=5.4.0",
-    "illuminate/support": "~5.0"
+    "illuminate/support": "~5.4",
   },
   "autoload": {
     "psr-0": {
@@ -18,5 +18,23 @@
       "src/RashidAli05/SweetAlert/functions.php"
     ]
   },
-  "minimum-stability": "stable"
+
+  "extra": {
+        "branch-alias": {
+            "dev-master": "3.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "RashidAli05\\SweetAlert\\SweetAlertServiceProvider"
+            ],
+            "aliases": {
+                "Alert": "RashidAli05\\SweetAlert\\Facades\\Alert::class"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
