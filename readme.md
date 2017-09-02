@@ -300,14 +300,9 @@ in view
 ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------
 ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/types/success.png) | ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/types/error.png) | ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/types/warning.png) | ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/types/info.png) | ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/types/question.png)
 
-# Issues and contribution
+# Issues and Contribution
 
 Just submit an issue or pull request through GitHub. Thanks!
-
-
-# License
-
-SweetAlert is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 ## Author
 
@@ -316,7 +311,6 @@ SweetAlert is open-sourced software licensed under the [MIT license](http://open
 - Facebook: https://www.facebook.com/rashidali05
 - GitHub: https://github.com/rashidali05
 
-Made with :heart: in **Pakistan**
 
 ## Rashid  – Coming Soon Responsive Template
 
@@ -330,3 +324,11 @@ Tested on Chrome 26.0, Firefox 20.0, Safari 5.1.7, IE 10, Opera 16.0. Limited su
     <a href="https://github.com/rashidali05/Rashid-Coming-Soon-Responsive-Template/" target="_blank">
     <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/rashid-coming-soon.PNG"/></a>
 </p>
+
+# License
+
+SweetAlert is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+<p align="center"> <b>Made :heart: with Pakistan<b> </p>
+
+
