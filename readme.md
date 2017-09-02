@@ -11,7 +11,9 @@ A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAV
 
 ZERO DEPENDENCIES
 
-![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/intro.PNG)
+<p align="center">
+    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/intro.PNG" alt="">
+</p>
 
 # Install
 
@@ -105,7 +107,10 @@ in view
 @endif
 ```
 
-![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/basic-msg.PNG)
+<p align="center">
+    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/basic-msg.PNG" alt="">
+</p>
+
 
 A success message!
 
@@ -131,7 +136,9 @@ in view
 @endif
 ```
 
-![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/intro.PNG)
+<p align="center">
+    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/intro.PNG" alt="">
+</p>
 
 A message with auto close timer!
 
@@ -191,7 +198,9 @@ in view
 @endif
 ```
 
-![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/html-elements.PNG)
+<p align="center">
+    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/html-elements.PNG" alt="">
+</p>
 
 A warning message, with a function attached to the "Confirm"-buttons!
 
@@ -236,7 +245,16 @@ in view
 @endif
 ```
 
-![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/delete.PNG) After clicked Yes, delete it! ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/deleted.PNG)
+<p align="center">
+    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/delete.PNG" alt="">
+</p>
+
+After clicked Yes, delete it!
+
+<p align="center">
+    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/deleted.PNG" alt="">
+</p>
+
 
 A message with a custom image and CSS animation disabled!
 
@@ -269,7 +287,9 @@ in view
 @endif
 ```
 
-![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/modal-with-image.PNG)
+<p align="center">
+    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/modal-with-image.PNG" alt="">
+</p>
 
 > The above examples uses SweetAlert, but the flexibily of alert means you can easily use it with any JavaScript alert solution.
 
