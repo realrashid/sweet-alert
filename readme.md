@@ -4,6 +4,10 @@ A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAV
 
 ZERO DEPENDENCIES
 
+[See SweetAlert in action!](https://limonte.github.io/sweetalert2/)
+
+![](https://raw.github.com/rashidali05/sweet-alert/master/imgs/intro.png)
+
 # Install
 
 To get started with SweetAlert, use Composer to add the package to your project's dependencies:
@@ -71,31 +75,44 @@ Within a view, you can now check if a flash message exists and output it.
 You can pass additional options to the `flash` method, which are then easily accessible within your view.
 
 ```php
-alert()->flash('Welcome back!', 'success', [
-    'timer' => 3000,
-    'text' => 'It\'s really great to see you again',
+alert()->flash(title, alert type, [
+    options => array
 ]);
 ```
 
-Then, in your view.
+# Alert Types
+
+A success message!
+
+in controller
+
+```php
+alert()->flash('Welcome back!', 'success', [
+        'text' => 'Welcome to Laravel SweetAlert By Rashid Ali!'
+    ]);
+```
+
+in view
 
 ```javascript
 @if (alert()->ready())
     <script>
         swal({
             title: "{!! alert()->message() !!}",
-            text: "{!! alert()->option('text') !!}",
-            type: "{{ alert()->type() }}",
-            @if (alert()->option('timer'))
-                timer: {{ alert()->option('timer') }},
-                showConfirmButton: false
-            @endif
+            type: "{!! alert()->type() !!}",
+            text: "{!! alert()->option('text') !!}"
         });
     </script>
 @endif
 ```
 
+[See SweetAlert2 in action!](https://limonte.github.io/sweetalert2/)
+
+![](https://raw.github.com/limonte/sweetalert2/master/assets/sweetalert2.gif)
+
 > The above example uses SweetAlert, but the flexibily of alert means you can easily use it with any JavaScript alert solution.
+
+# ScreenShots
 
 # Issues and contribution
 
