@@ -4,7 +4,10 @@ A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAV
 
 ZERO DEPENDENCIES
 
-![](https://raw.githubusercontent.com/rashidali05/sweet-alert/master/imgs/intro.PNG)
+<p align="center"> 
+<img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/intro.PNG">
+</p>
+
 
 # Install
 
