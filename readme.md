@@ -1,13 +1,17 @@
+<p align="center">
+<a href="https://travis-ci.org/rashidali05/sweet-alert"><img src="https://travis-ci.org/rashidali05/sweet-alert.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/rashidali05/sweet-alert"><img src="https://poser.pugx.org/rashidali05/sweet-alert/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/rashidali05/sweet-alert"><img src="https://poser.pugx.org/rashidali05/sweet-alert/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/rashidali05/sweet-alert"><img src="https://poser.pugx.org/rashidali05/sweet-alert/license.svg" alt="License"></a>
+</p>
+
 # Introduction
 
 A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAVASCRIPT'S POPUP BOXES
 
 ZERO DEPENDENCIES
 
-<p align="center"> 
-<img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/intro.PNG">
-</p>
-
+![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/intro.PNG)
 
 # Install
 
@@ -63,25 +67,45 @@ Within a view, you can now check if a flash message exists and output it.
 
 ```php
 @if (alert()->ready())
-    <div class="alert-box {{ alert()->type() }}">
-        {{ alert()->message() }}
-    </div>
+    <script>
+        swal({
+            title: "{!! alert()->message() !!}"
+        });
+    </script>
 @endif
 ```
-
-> alert is front-end framework agnostic, so you're free to easily implement the output however you choose.
 
 ## Options
 
 You can pass additional options to the `flash` method, which are then easily accessible within your view.
 
 ```php
-alert()->flash(title, alert type, [
-    options => array
-]);
+alert()->flash(title, modal type, options[]);
 ```
 
 # Alert Types
+
+A basic message!
+
+in controller
+
+```php
+alert()->flash('Welcome to Laravel SweetAlert By Rashid Ali!');
+```
+
+in view
+
+```javascript
+@if (alert()->ready())
+    <script>
+        swal({
+            title: "{!! alert()->message() !!}"
+        });
+    </script>
+@endif
+```
+
+![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/basic-msg.PNG)
 
 A success message!
 
@@ -99,21 +123,161 @@ in view
 @if (alert()->ready())
     <script>
         swal({
-            title: "{!! alert()->message() !!}",
-            type: "{!! alert()->type() !!}",
-            text: "{!! alert()->option('text') !!}"
+          title: "{!! alert()->message() !!}",
+          text: "{!! alert()->option('text') !!}",
+          type: "{!! alert()->type() !!}"
         });
     </script>
 @endif
 ```
 
-[See SweetAlert2 in action!](https://limonte.github.io/sweetalert2/)
+![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/intro.PNG)
 
-![](https://raw.github.com/limonte/sweetalert2/master/assets/sweetalert2.gif)
+A message with auto close timer!
 
-> The above example uses SweetAlert, but the flexibily of alert means you can easily use it with any JavaScript alert solution.
+in controller
 
-# ScreenShots
+```php
+alert()->flash('Welcome back!', 'success', [
+        'text' => 'Welcome to Laravel SweetAlert By Rashid Ali!'
+    ]);
+```
+
+in view
+
+```javascript
+@if (alert()->ready())
+    <script>
+        swal({
+            title: "{!! alert()->message() !!}",
+            text: "{!! alert()->option('text') !!}",
+            type: "{!! alert()->type() !!}",
+            @if(alert()->option('timer'))
+                timer: {!! alert()->option('timer') !!},
+                showConfirmButton: false,
+            @endif
+        });
+    </script>
+@endif
+```
+
+![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/auto-close.PNG)
+
+Custom HTML description and buttons!
+
+in controller
+
+```php
+alert()->flash('<i>HTML</i> <u>example</u>', 'info',[
+        'html' => "You can use <b>bold text</b>, \
+                  <a href='https://github.com/rashidali05/'>links</a> \
+                  and other HTML tags",
+        'showCloseButton' => true
+    ]);
+```
+
+in view
+
+```javascript
+@if (alert()->ready())
+    <script>
+        swal({
+            title: "{!! alert()->message() !!}",
+            type: "{!! alert()->type() !!}",
+            html: "{!! alert()->option('html') !!}",
+            showCloseButton: "{!! alert()->option('showCloseButton') !!}"
+        });
+    </script>
+@endif
+```
+
+![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/html-elements.PNG)
+
+A warning message, with a function attached to the "Confirm"-buttons!
+
+in controller
+
+```php
+alert()->flash('Are you sure?', 'warning',[
+        'text' => 'You won\'t be able to revert this!',
+        'showCancelButton' => true,
+        'confirmButtonColor' => '#3085d6',
+        'cancelButtonColor' => '#d33',
+        'confirmButtonText' => 'Yes, delete it!',
+        // if user clicked Yes, delete it!
+        // then this will run
+        'deleted' => 'Deleted!',
+        'msg' => 'Your file has been deleted.',
+        'type' => 'success'
+    ]);
+```
+
+in view
+
+```javascript
+@if (alert()->ready())
+    <script>
+        swal({
+            title: "{!! alert()->message() !!}",
+            type: "{!! alert()->type() !!}",
+            text: "{!! alert()->option('text') !!}",
+            showCancelButton: "{!! alert()->option('showCancelButton') !!}",
+            cancelButtonColor: "{!! alert()->option('cancelButtonColor') !!}",
+            confirmButtonColor: "{!! alert()->option('confirmButtonColor') !!}",
+            confirmButtonText: "{!! alert()->option('confirmButtonText') !!}",
+        }).then(function () {
+            swal(
+                '{!! alert()->option('deleted') !!}',
+                '{!! alert()->option('msg') !!}',
+                '{!! alert()->option('type') !!}'
+            )
+        });
+    </script>
+@endif
+```
+
+![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/delete.PNG) After clicked Yes, delete it! ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/deleted.PNG)
+
+A message with a custom image and CSS animation disabled!
+
+in controller
+
+```php
+alert()->flash('Sweet!', 'success',[
+        'text' => 'Modal with a custom image.',
+        'imageUrl' => 'https://unsplash.it/400/200',
+        'imageWidth' => 400,
+        'imageHeight' => 200,
+        'animation' => false
+    ]);
+```
+
+in view
+
+```javascript
+@if (alert()->ready())
+  <script>
+      swal({
+          title: "{!! alert()->message() !!}",
+          text: "{!! alert()->option('text') !!}",
+          imageUrl: "{!! alert()->option('imageUrl') !!}",
+          imageWidth: "{!! alert()->option('imageWidth') !!}",
+          imageHeight: "{!! alert()->option('imageHeight') !!}",
+          animation: "{!! alert()->option('animation') !!}"
+      });
+  </script>
+@endif
+```
+
+![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/modal-with-image.PNG)
+
+> The above examples uses SweetAlert, but the flexibily of alert means you can easily use it with any JavaScript alert solution.
+
+## Modal Types
+
+`success`                                                                          | `error`                                                                          | `warning`                                                                          | `info`                                                                          | `question`
+---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------
+![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/types/success.png) | ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/types/error.png) | ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/types/warning.png) | ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/types/info.png) | ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/types/question.png)
 
 # Issues and contribution
 
