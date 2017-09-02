@@ -6,7 +6,7 @@ ZERO DEPENDENCIES
 
 [See SweetAlert in action!](https://limonte.github.io/sweetalert2/)
 
-![](https://raw.github.com/rashidali05/sweet-alert/master/imgs/intro.png)
+![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/intro.PNG)
 
 # Install
 
