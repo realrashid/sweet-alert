@@ -304,7 +304,7 @@ in view
 
 Just submit an issue or pull request through GitHub. Thanks!
 
-## Author
+## Connect with Me
 
 - Email: rashidali.pk99@gmail.com
 - Twitter: http://twitter.com/rashidali05
@@ -314,7 +314,7 @@ Just submit an issue or pull request through GitHub. Thanks!
 
 ## Rashid  – Coming Soon Responsive Template
 
-**Rashid  – Coming Soon Responsive Template** is the perfect template for your freelancer/web agencies!
+**Rashid  – Coming Soon Responsive Template** is the perfect template for freelancers and web agencies!
 
 Tested on Chrome 26.0, Firefox 20.0, Safari 5.1.7, IE 10, Opera 16.0. Limited support for IE8/9.
 
