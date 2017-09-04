@@ -145,7 +145,8 @@ in controller
 
 ```php
 alert()->flash('Welcome back!', 'success', [
-        'text' => 'Welcome to Laravel SweetAlert By Rashid Ali!'
+        'text' => 'Welcome to Laravel SweetAlert By Rashid Ali!',
+        'timer' => 3000
     ]);
 ```
 
