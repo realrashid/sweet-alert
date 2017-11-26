@@ -1,9 +1,9 @@
 {
-  "name": "rashidali05/sweet-alert",
+  "name": "realrashid/sweet-alert",
   "description": "SweetAlert2 for Laravel 5.x by Rashid Ali",
   "authors": [{
     "name": "Rashid Ali",
-    "email": "rashidali.pk99@gmail.com"
+    "email": "realrashid05@gmail.com"
   }],
   "license": "MIT",
   "require": {
@@ -12,10 +12,10 @@
   },
   "autoload": {
     "psr-0": {
-      "RashidAli05\\SweetAlert\\": "src/"
+      "RealRashid\\SweetAlert\\": "src/"
     },
     "files": [
-      "src/RashidAli05/SweetAlert/functions.php"
+      "src/RealRashid/SweetAlert/functions.php"
     ]
   },
   "extra": {
@@ -24,10 +24,10 @@
         },
         "laravel": {
             "providers": [
-                "RashidAli05\\SweetAlert\\SweetAlertServiceProvider"
+                "RealRashid\\SweetAlert\\SweetAlertServiceProvider"
             ],
             "aliases": {
-                "Alert": "RashidAli05\\SweetAlert\\Facades\\Alert::class"
+                "Alert": "RealRashid\\SweetAlert\\Facades\\Alert::class"
             }
         }
     },

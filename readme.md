@@ -1,7 +1,7 @@
 <p align="center">
-<a href="https://packagist.org/packages/rashidali05/sweet-alert"><img src="https://poser.pugx.org/rashidali05/sweet-alert/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/rashidali05/sweet-alert"><img src="https://poser.pugx.org/rashidali05/sweet-alert/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/rashidali05/sweet-alert"><img src="https://poser.pugx.org/rashidali05/sweet-alert/license.svg" alt="License"></a>
+<a href="https://packagist.org/packages/realrashid/sweet-alert"><img src="https://poser.pugx.org/realrashid/sweet-alert/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/realrashid/sweet-alert"><img src="https://poser.pugx.org/realrashid/sweet-alert/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/realrashid/sweet-alert"><img src="https://poser.pugx.org/realrashid/sweet-alert/license.svg" alt="License"></a>
 </p>
 
 # Introduction
@@ -11,7 +11,7 @@ A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAV
 ZERO DEPENDENCIES
 
 <p align="center">
-    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/intro.PNG" alt="">
+    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/intro.PNG" alt="">
 </p>
 
 # Install
@@ -19,25 +19,25 @@ ZERO DEPENDENCIES
 To get started with SweetAlert, use Composer to add the package to your project's dependencies:
 
 ```
-composer require rashidali05/sweet-alert
+composer require realrashid/sweet-alert
 ```
 
 ## Configuration
 
-After installing the SweetAlert library, register the `RashidAli05\SweetAlert\SweetAlertServiceProvider::class` in your `config/app.php` configuration file:
+After installing the SweetAlert library, register the `RealRashid\SweetAlert\SweetAlertServiceProvider::class` in your `config/app.php` configuration file:
 
 ```php
 'providers' => [
     // Other service providers...
 
-    RashidAli05\SweetAlert\SweetAlertServiceProvider::class,
+    RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 ],
 ```
 
 Also, add the `SweetAlert` facade to the `aliases` array in your `app` configuration file:
 
 ```php
-'Alert' => RashidAli05\SweetAlert\Facades\Alert::class,
+'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
 ```
 
 > Note, there is a alert() function available, so unless you really want to use the Facade, there's no need to include it.
@@ -107,7 +107,7 @@ in view
 ```
 
 <p align="center">
-    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/basic-msg.PNG" alt="">
+    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/basic-msg.PNG" alt="">
 </p>
 
 
@@ -136,7 +136,7 @@ in view
 ```
 
 <p align="center">
-    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/intro.PNG" alt="">
+    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/intro.PNG" alt="">
 </p>
 
 A message with auto close timer!
@@ -169,7 +169,7 @@ in view
 ```
 
 <p align="center">
-    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/auto-close.PNG" alt="">
+    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/auto-close.PNG" alt="">
 </p>
 
 Custom HTML description and buttons!
@@ -179,7 +179,7 @@ in controller
 ```php
 alert()->flash('<i>HTML</i> <u>example</u>', 'info',[
         'html' => "You can use <b>bold text</b>, \
-                  <a href='https://github.com/rashidali05/'>links</a> \
+                  <a href='https://github.com/realrashid/'>links</a> \
                   and other HTML tags",
         'showCloseButton' => true
     ]);
@@ -201,7 +201,7 @@ in view
 ```
 
 <p align="center">
-    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/html-elements.PNG" alt="">
+    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/html-elements.PNG" alt="">
 </p>
 
 A warning message, with a function attached to the "Confirm"-buttons!
@@ -248,13 +248,13 @@ in view
 ```
 
 <p align="center">
-    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/delete.PNG" alt="">
+    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/delete.PNG" alt="">
 </p>
 
 After clicked Yes, delete it!
 
 <p align="center">
-    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/deleted.PNG" alt="">
+    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/deleted.PNG" alt="">
 </p>
 
 
@@ -290,7 +290,7 @@ in view
 ```
 
 <p align="center">
-    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/modal-with-image.PNG" alt="">
+    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/modal-with-image.PNG" alt="">
 </p>
 
 > The above examples uses SweetAlert, but the flexibily of alert means you can easily use it with any JavaScript alert solution.
@@ -299,7 +299,7 @@ in view
 
 `success`                                                                          | `error`                                                                          | `warning`                                                                          | `info`                                                                          | `question`
 ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------
-![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/types/success.png) | ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/types/error.png) | ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/types/warning.png) | ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/types/info.png) | ![](https://github.com/rashidali05/sweet-alert/blob/master/imgs/types/question.png)
+![](https://github.com/realrashid/sweet-alert/blob/master/imgs/types/success.png) | ![](https://github.com/realrashid/sweet-alert/blob/master/imgs/types/error.png) | ![](https://github.com/realrashid/sweet-alert/blob/master/imgs/types/warning.png) | ![](https://github.com/realrashid/sweet-alert/blob/master/imgs/types/info.png) | ![](https://github.com/realrashid/sweet-alert/blob/master/imgs/types/question.png)
 
 # Issues and Contribution
 
@@ -307,10 +307,10 @@ Just submit an issue or pull request through GitHub. Thanks!
 
 ## Connect with Me
 
-- Email: rashidali.pk99@gmail.com
+- Email: realrashid05@gmail.com
 - Twitter: http://twitter.com/rashidali05
 - Facebook: https://www.facebook.com/rashidali05
-- GitHub: https://github.com/rashidali05
+- GitHub: https://github.com/realrashid
 
 
 ## Rashid  – Coming Soon Responsive Template
@@ -319,11 +319,11 @@ Just submit an issue or pull request through GitHub. Thanks!
 
 Tested on Chrome 26.0, Firefox 20.0, Safari 5.1.7, IE 10, Opera 16.0. Limited support for IE8/9.
 
-[Check out the demo here.](http://rashidali05.github.io/Rashid-Coming-Soon-Responsive-Template/demo/)
+[Check out the demo here.](http://realrashid.github.io/Rashid-Coming-Soon-Responsive-Template/demo/)
 
 <p align="center">
-    <a href="https://github.com/rashidali05/Rashid-Coming-Soon-Responsive-Template/" target="_blank">
-    <img src="https://github.com/rashidali05/sweet-alert/blob/master/imgs/rashid-coming-soon.PNG"/></a>
+    <a href="https://github.com/realrashid/Rashid-Coming-Soon-Responsive-Template/" target="_blank">
+    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/rashid-coming-soon.PNG"/></a>
 </p>
 
 # License

@@ -1,6 +1,6 @@
 <?php
 
-namespace RashidAli05\SweetAlert\Storage;
+namespace RealRashid\SweetAlert\Storage;
 
 use Illuminate\Session\Store;
 

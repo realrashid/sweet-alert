@@ -1,6 +1,6 @@
 <?php
 
-namespace RashidAli05\SweetAlert\Facades;
+namespace RealRashid\SweetAlert\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

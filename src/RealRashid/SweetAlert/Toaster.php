@@ -1,15 +1,15 @@
 <?php
 
-namespace RashidAli05\SweetAlert;
+namespace RealRashid\SweetAlert;
 
-use RashidAli05\SweetAlert\Storage\Session;
+use RealRashid\SweetAlert\Storage\Session;
 
 class Toaster
 {
     /**
      * Session storage.
      *
-     * @var RashidAli05\SweetAlert\Storage\Session
+     * @var RealRashid\SweetAlert\Storage\Session
      */
     protected $session;
 
