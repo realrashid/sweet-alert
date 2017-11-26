@@ -307,24 +307,14 @@ Just submit an issue or pull request through GitHub. Thanks!
 
 ## Connect with Me
 
+- Website: http://realrashid.com
 - Email: realrashid05@gmail.com
 - Twitter: http://twitter.com/rashidali05
 - Facebook: https://www.facebook.com/rashidali05
 - GitHub: https://github.com/realrashid
 
 
-## Rashid  – Coming Soon Responsive Template
 
-**Rashid  – Coming Soon Responsive Template** is the perfect template for freelancers and web agencies!
-
-Tested on Chrome 26.0, Firefox 20.0, Safari 5.1.7, IE 10, Opera 16.0. Limited support for IE8/9.
-
-[Check out the demo here.](http://realrashid.github.io/Rashid-Coming-Soon-Responsive-Template/demo/)
-
-<p align="center">
-    <a href="https://github.com/realrashid/Rashid-Coming-Soon-Responsive-Template/" target="_blank">
-    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/rashid-coming-soon.PNG"/></a>
-</p>
 
 # License
 
