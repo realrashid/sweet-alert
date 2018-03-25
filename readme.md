@@ -2,7 +2,11 @@
 <a href="https://packagist.org/packages/realrashid/sweet-alert"><img src="https://poser.pugx.org/realrashid/sweet-alert/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/realrashid/sweet-alert"><img src="https://poser.pugx.org/realrashid/sweet-alert/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/realrashid/sweet-alert"><img src="https://poser.pugx.org/realrashid/sweet-alert/license.svg" alt="License"></a>
+<a href="https://www.patreon.com/realrashid"><img alt="Support me on Patreon" src="http://ionicabizau.github.io/badges/patreon.svg"></a>
+<a href="https://liberapay.com/realrashid/donate"><img alt="Support me on Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
 </p>
+
+> note: if you are using sweet-alert v1.0 you can get READMEfor v1.0 from [here](https://github.com/realrashid/sweet-alert/blob/1.0/readme.md)
 
 # Introduction
 
@@ -11,12 +15,12 @@ A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAV
 ZERO DEPENDENCIES
 
 <p align="center">
-    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/intro.PNG" alt="">
+    <img src="https://raw.github.com/sweetalert2/sweetalert2/master/assets/sweetalert2.gif" width="562" height="388">
 </p>
 
 # Install
 
-To get started with SweetAlert, use Composer to add the package to your project's dependencies:
+To get started with SweetAlert2, use Composer to add the package to your project's dependencies:
 
 ```
 composer require realrashid/sweet-alert
@@ -24,7 +28,11 @@ composer require realrashid/sweet-alert
 
 ## Configuration
 
-After installing the SweetAlert library, register the `RealRashid\SweetAlert\SweetAlertServiceProvider::class` in your `config/app.php` configuration file:
+> Note, Optional in `Laravel 5.5 or +`
+
+After installing the sweet-alert package, register the
+`RealRashid\SweetAlert\SweetAlertServiceProvider::class`
+in your `config/app.php` configuration file:
 
 ```php
 'providers' => [
@@ -34,292 +42,326 @@ After installing the SweetAlert library, register the `RealRashid\SweetAlert\Swe
 ],
 ```
 
-Also, add the `SweetAlert` facade to the `aliases` array in your `app` configuration file:
+Also, add the `Alert` facade to the `aliases` array in your `app` configuration file:
 
 ```php
 'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
 ```
 
-> Note, there is a alert() function available, so unless you really want to use the Facade, there's no need to include it.
+## Import SweetAlert 2 Library
 
-### Import SweetAlert Libraries
-
-in your views
-
-```css
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
-```
+in your master layout
 
 ```javascript
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
+<script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 ```
 
-# Usage
+and include sweetalert view
 
-## Basic
+`@include('sweetalert::alert')`
 
-From your application, call the `flash` method with a message and type.
+> Include the sweetalert view below the cdn link in your layout!
+
+## Usage
+
+#### Using Facade
+
+Import Alert Facade first!
+
+`use RealRashid\SweetAlert\Facades\Alert;` or
+`Use Alert;` in your controller
+
+*   `Alert::alert('Title', 'Message', 'Type');`
+*   `Alert::success('Success Title', 'Success Message');`
+*   `Alert::info('Info Title', 'Info Message');`
+*   `Alert::warning('Warning Title', 'Warning Message');`
+*   `Alert::error('Error Title', 'Error Message');`
+*   `Alert::question('Question Title', 'Question Message');`
+*   `Alert::html('Html Title', 'Html Code', 'Type');`
+*   `Alert::toast('Toast Message', 'Toast Type', 'Toast Position');`
+
+### Using the helper function
+
+#### Alert
+
+*   `alert('Title','Lorem Lorem Lorem', 'success');`
+
+*   `alert()->success('Title','Lorem Lorem Lorem');`
+
+*   `alert()->info('Title','Lorem Lorem Lorem');`
+
+*   `alert()->warning('Title','Lorem Lorem Lorem');`
+
+*   `alert()->question('Title','Lorem Lorem Lorem');`
+
+*   `alert()->error('Title','Lorem Lorem Lorem');`
+
+*   `alert()->html('<i>HTML</i> <u>example</u>'," You can use <b>bold text</b>, <a href='//github.com'>links</a> and other HTML tags ",'success');`
+
+#### Toast
+
+*   `toast('Your Post as been submited!','success','top-right');`
+
+### Demo
+
+#### Success Alert
 
 ```php
-alert()->flash('Welcome back!', 'success');
-```
+/**
+ * Store a newly created resource in storage.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return \Illuminate\Http\Response
+*/
+public function store(PostRequest $request)
+{
+    $post = Post::create($request->all());
 
-Within a view, you can now check if a flash message exists and output it.
-
-```php
-@if (alert()->ready())
-    <script>
-        swal({
-            title: "{!! alert()->message() !!}"
-        });
-    </script>
-@endif
-```
-
-## Options
-
-You can pass additional options to the `flash` method, which are then easily accessible within your view.
-
-```php
-alert()->flash(title, modal type, options[]);
-```
-
-# Alert Types
-
-A basic message!
-
-in controller
-
-```php
-alert()->flash('Welcome to Laravel SweetAlert By Rashid Ali!');
-```
-
-in view
-
-```javascript
-@if (alert()->ready())
-    <script>
-        swal({
-            title: "{!! alert()->message() !!}"
-        });
-    </script>
-@endif
+    if ($post) {
+        alert()->success('Post Created', 'Successfully');
+        return redirect()->route('posts.index');
+    }
+}
 ```
 
 <p align="center">
-    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/basic-msg.PNG" alt="">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/alert/SuccessAlert1.png" alt="SuccessAlert">
 </p>
 
-
-A success message!
-
-in controller
+#### Error Alert
 
 ```php
-alert()->flash('Welcome back!', 'success', [
-        'text' => 'Welcome to Laravel SweetAlert By Rashid Ali!'
+
+ /**
+ * Get the failed login response instance.
+ *
+ * @param  \Illuminate\Http\Request  $request
+* @return \Symfony\Component\HttpFoundation\Response
+*
+* @throws \Illuminate\Validation\ValidationException
+*/
+protected function sendFailedLoginResponse(Request $request)
+{
+    alert()->error('Oops...', 'Something went wrong!');
+
+    throw ValidationException::withMessages([
+        $this->username() => [trans('auth.failed')],
     ]);
-```
+}
 
-in view
-
-```javascript
-@if (alert()->ready())
-    <script>
-        swal({
-          title: "{!! alert()->message() !!}",
-          text: "{!! alert()->option('text') !!}",
-          type: "{!! alert()->type() !!}"
-        });
-    </script>
-@endif
 ```
 
 <p align="center">
-    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/intro.PNG" alt="">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/alert/ErrorAlert.png" alt="ErrorAlert">
 </p>
 
-A message with auto close timer!
+#### Success Toast
 
-in controller
+``` php
+/**
+ * Remove the specified resource from storage.
+ *
+ * @param  \App\Post  $post
+ * @return \Illuminate\Http\Response
+*/
+public function destroy($id)
+{
+    $post = Post::find($id);
 
-```php
-alert()->flash('Welcome back!', 'success', [
-        'text' => 'Welcome to Laravel SweetAlert By Rashid Ali!',
-        'timer' => 3000
-    ]);
-```
+    $post->delete();
 
-in view
-
-```javascript
-@if (alert()->ready())
-    <script>
-        swal({
-            title: "{!! alert()->message() !!}",
-            text: "{!! alert()->option('text') !!}",
-            type: "{!! alert()->type() !!}",
-            @if(alert()->option('timer'))
-                timer: {!! alert()->option('timer') !!},
-                showConfirmButton: false,
-            @endif
-        });
-    </script>
-@endif
+    if ($post) {
+        toast('Post Deleted Successfully','success','top-right');
+        return redirect()->route('posts.index');
+    }
+}
 ```
 
 <p align="center">
-    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/auto-close.PNG" alt="">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/toast/SuccessToast1.png" alt="SuccessToast">
 </p>
 
-Custom HTML description and buttons!
 
-in controller
+## Methods Definition
 
-```php
-alert()->flash('<i>HTML</i> <u>example</u>', 'info',[
-        'html' => "You can use <b>bold text</b>, \
-                  <a href='https://github.com/realrashid/'>links</a> \
-                  and other HTML tags",
-        'showCloseButton' => true
-    ]);
+#### Alert Methods
+
+|         Method        	|             Argument           	|
+|:---------------------:	|:------------------------------:	|
+|       `alert()`       	|    `$title, $message, $type`   	|
+|  `alert()->success()` 	|       `$title, $message`       	|
+|   `alert()->info()`   	|       `$title, $message`       	|
+|  `alert()->warning()` 	|       `$title, $message`       	|
+|   `alert()->error()`  	|       `$title, $message`       	|
+| `alert()->question()` 	|       `$title, $message`       	|
+|    `alert()->html()`   	| `$htmltitle, $htmlCode, $type` 	|
+|      `toast()`     	    | `$message, $type, $position` 	    |
+
+#### Chain Methods
+
+|      Chain Method     	|                     Argument                     	|                                             Snippet                                             	|
+|:---------------------:	|:------------------------------------------------:	|:-----------------------------------------------------------------------------------------------:	|
+|     `persistent()`    	| `$showConfirmBtn =  true, $showCloseBtn = false` 	|         `alert()->success('Alert Persistent', 'Successfully')->persistent(false,true);`         	|
+|     `autoClose()`     	|              `$milliseconds = 5000`              	|           `alert()->info('I am going to close after', '5 seconds')->autoClose(5000);`           	|
+| `showConfirmButton()` 	|     `$btnText = 'Ok', $btnColor = '#3085d6'`     	|          `alert()->info('Info', 'Alert')->showConfirmButton('Button Text','#3085d6');`          	|
+|  `showCancelButton()` 	|     `$btnText = 'Cencel', $btnColor = '#aaa'`    	| `alert()->question('Is Post Created', 'Successfully?)->showCancelButton('Button Text','#aaa');` 	|
+|  `showCloseButton()`  	|      `$closeButtonAriaLabel = 'aria-label'`      	|        `alert()->warning('Post Created', 'Successfully')->showCloseButton('aria-label');`       	|
+|       `footer()`      	|                    `$htmlcode`                   	|    `alert()->error('Oops...', 'Something went wrong!')->footer('<a href>Why do I have this issue?</a>');`   	|
+|      `toToast()`      	|             `$position = 'top-right'`            	|                  `alert()->success('Post Created', 'Successfully')->toToast();`                 	|
+|                       	|                                                  	|                                                                                                 	|
+|                       	|                                                  	|                                                                                                 	|
+> can also support multiple chaining
+
+``` php
+
+alert()
+    ->error('Oops...', 'Something went wrong!')
+    ->footer('<a href>Why do I have this issue?</a>')
+    ->showConfirmButton()
+    ->showCancelButton()
+    ->showCloseButton()
+    ->autoClose(5000);
+
 ```
 
-in view
+## Screenshots
 
-```javascript
-@if (alert()->ready())
-    <script>
-        swal({
-            title: "{!! alert()->message() !!}",
-            type: "{!! alert()->type() !!}",
-            html: "{!! alert()->option('html') !!}",
-            showCloseButton: "{!! alert()->option('showCloseButton') !!}"
-        });
-    </script>
-@endif
+#### Alert
+
+##### Success Alert
+
+``` php
+alert()->success('SuccessAlert','Lorem ipsum dolor sit amet.');
 ```
 
 <p align="center">
-    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/html-elements.PNG" alt="">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/alert/SuccessAlert.png" alt="SuccessAlert">
 </p>
 
-A warning message, with a function attached to the "Confirm"-buttons!
+##### Info Alert
 
-in controller
-
-```php
-alert()->flash('Are you sure?', 'warning',[
-        'text' => 'You won\'t be able to revert this!',
-        'showCancelButton' => true,
-        'confirmButtonColor' => '#3085d6',
-        'cancelButtonColor' => '#d33',
-        'confirmButtonText' => 'Yes, delete it!',
-        // if user clicked Yes, delete it!
-        // then this will run
-        'deleted' => 'Deleted!',
-        'msg' => 'Your file has been deleted.',
-        'type' => 'success'
-    ]);
-```
-
-in view
-
-```javascript
-@if (alert()->ready())
-    <script>
-        swal({
-            title: "{!! alert()->message() !!}",
-            type: "{!! alert()->type() !!}",
-            text: "{!! alert()->option('text') !!}",
-            showCancelButton: "{!! alert()->option('showCancelButton') !!}",
-            cancelButtonColor: "{!! alert()->option('cancelButtonColor') !!}",
-            confirmButtonColor: "{!! alert()->option('confirmButtonColor') !!}",
-            confirmButtonText: "{!! alert()->option('confirmButtonText') !!}",
-        }).then(function () {
-            swal(
-                '{!! alert()->option('deleted') !!}',
-                '{!! alert()->option('msg') !!}',
-                '{!! alert()->option('type') !!}'
-            )
-        });
-    </script>
-@endif
+``` php
+alert()->info('InfoAlert','Lorem ipsum dolor sit amet.');
 ```
 
 <p align="center">
-    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/delete.PNG" alt="">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/alert/InfoAlert.png" alt="InfoAlert">
 </p>
 
-After clicked Yes, delete it!
+##### Warning Alert
 
-<p align="center">
-    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/deleted.PNG" alt="">
-</p>
-
-
-A message with a custom image and CSS animation disabled!
-
-in controller
-
-```php
-alert()->flash('Sweet!', 'success',[
-        'text' => 'Modal with a custom image.',
-        'imageUrl' => 'https://unsplash.it/400/200',
-        'imageWidth' => 400,
-        'imageHeight' => 200,
-        'animation' => false
-    ]);
-```
-
-in view
-
-```javascript
-@if (alert()->ready())
-  <script>
-      swal({
-          title: "{!! alert()->message() !!}",
-          text: "{!! alert()->option('text') !!}",
-          imageUrl: "{!! alert()->option('imageUrl') !!}",
-          imageWidth: "{!! alert()->option('imageWidth') !!}",
-          imageHeight: "{!! alert()->option('imageHeight') !!}",
-          animation: "{!! alert()->option('animation') !!}"
-      });
-  </script>
-@endif
+``` php
+alert()->warning('WarningAlert','Lorem ipsum dolor sit amet.');
 ```
 
 <p align="center">
-    <img src="https://github.com/realrashid/sweet-alert/blob/master/imgs/modal-with-image.PNG" alt="">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/alert/WarningAlert.png" alt="WarningAlert">
 </p>
 
-> The above examples uses SweetAlert, but the flexibily of alert means you can easily use it with any JavaScript alert solution.
+##### Question Alert
 
-## Modal Types
+``` php
+alert()->question('QuestionAlert','Lorem ipsum dolor sit amet.');
+```
 
-`success`                                                                          | `error`                                                                          | `warning`                                                                          | `info`                                                                          | `question`
----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------
-![](https://github.com/realrashid/sweet-alert/blob/master/imgs/types/success.png) | ![](https://github.com/realrashid/sweet-alert/blob/master/imgs/types/error.png) | ![](https://github.com/realrashid/sweet-alert/blob/master/imgs/types/warning.png) | ![](https://github.com/realrashid/sweet-alert/blob/master/imgs/types/info.png) | ![](https://github.com/realrashid/sweet-alert/blob/master/imgs/types/question.png)
+<p align="center">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/alert/QuestionAlert.png" alt="QuestionAlert">
+</p>
 
-# Issues and Contribution
+##### Error Alert
 
-Just submit an issue or pull request through GitHub. Thanks!
+``` php
+alert()->error('ErrorAlert','Lorem ipsum dolor sit amet.');
+```
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/alert/ErrorAlert.png" alt="ErrorAlert">
+</p>
+
+##### Html Alert
+
+``` php
+alert()->html('<i>HTML</i> <u>example</u>',"
+  You can use <b>bold text</b>,
+  <a href='//github.com'>links</a>
+  and other HTML tags
+",'success');
+```
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/alert/HtmlAlert.png" alt="HtmlAlert">
+</p>
+
+#### Toast
+
+##### Success Toast
+
+``` php
+toast('Success Toast','success','top-right');
+```
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/toast/SuccessToast.png" alt="SuccessToast">
+</p>
+
+##### Info Toast
+
+``` php
+toast('Info Toast','info','top-right');
+```
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/toast/InfoToast.png" alt="InfoToast">
+</p>
+
+##### Warning Toast
+
+``` php
+toast('Warning Toast','warning','top-right');
+```
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/toast/WarningToast.png" alt="WarningToast">
+</p>
+
+##### Question Toast
+
+``` php
+toast('Question Toast','question','top-right');
+```
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/toast/QuestionToast.png" alt="QuestionToast">
+</p>
+
+##### Error Toast
+
+``` php
+toast('Error Toast','error','top-right');
+```
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/toast/ErrorToast.png" alt="ErrorToast">
+</p>
+
+## Contributing
+
+Please see [CONTRIBUTING](https://github.com/realrashid/sweet-alert/blob/master/CONTRIBUTING.md) and [CODE_OF_CONDUCT](https://github.com/realrashid/sweet-alert/blob/master/CODE_OF_CONDUCT.md) for details.
+
+## Credits
+
+*   [SweetAlert2](https://github.com/sweetalert2/sweetalert2)
 
 ## Connect with Me
 
-- Website: http://realrashid.com
-- Email: realrashid05@gmail.com
-- Twitter: http://twitter.com/rashidali05
-- Facebook: https://www.facebook.com/rashidali05
-- GitHub: https://github.com/realrashid
+*   Website: http://realrashid.com
+*   Email: realrashid05@gmail.com
+*   Twitter: http://twitter.com/rashidali05
+*   Facebook: https://www.facebook.com/rashidali05
+*   GitHub: https://github.com/realrashid
 
+## License
 
-
-
-# License
-
-SweetAlert is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+SweetAlert2 is open-sourced software licensed under the MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
 <p align="center"> <b>Made :heart: with Pakistan<b> </p>
-
-

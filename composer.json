@@ -1,39 +1,59 @@
 {
-  "name": "realrashid/sweet-alert",
-  "description": "SweetAlert2 for Laravel 5.x by Rashid Ali",
-  "authors": [{
-    "name": "Rashid Ali",
-    "email": "realrashid05@gmail.com"
-  }],
-  "license": "MIT",
-  "require": {
-    "php": ">=5.4.0",
-    "illuminate/support": "~5.4"
-  },
-  "autoload": {
-    "psr-0": {
-      "RealRashid\\SweetAlert\\": "src/"
+    "name": "realrashid/sweet-alert",
+    "type": "library",
+    "description": "SweetAlert2 for Laravel 5.5.* by Rashid Ali",
+    "keywords": [
+        "laravel",
+        "sweet-alert2",
+        "sweet",
+        "notifier",
+        "alert",
+        "noty"
+    ],
+    "homepage": "https://github.com/realrashid/sweet-alert",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rashid Ali",
+            "email": "realrashid05@gmail.com",
+            "homepage": "https://realrashid.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "realrashid05@gmail.com",
+        "issues": "https://github.com/realrashid/sweet-alert/issues",
+        "source": "https://github.com/realrashid/sweet-alert",
+        "docs": "https://github.com/realrashid/sweet-alert/README.md"
     },
-    "files": [
-      "src/RealRashid/SweetAlert/functions.php"
-    ]
-  },
-  "extra": {
-        "branch-alias": {
-            "dev-master": "3.0-dev"
+    "require": {
+        "illuminate/support": "~5.1",
+        "illuminate/session": "~5.1",
+        "php": "~5.6|~7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=5.4.3",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "RealRashid\\SweetAlert\\": "src"
         },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "extra": {
         "laravel": {
             "providers": [
                 "RealRashid\\SweetAlert\\SweetAlertServiceProvider"
             ],
             "aliases": {
-                "Alert": "RealRashid\\SweetAlert\\Facades\\Alert::class"
+                "Alert": "RealRashid\\SweetAlert\\Facades"
             }
         }
     },
     "config": {
         "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
