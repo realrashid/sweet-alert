@@ -335,6 +335,21 @@ class Toaster
     }
 
     /**
+     * Reverse buttons position
+     *
+     * @return RealRashid\SweetAlert\Toaster::alert();
+     */
+    public function reverseButtons()
+    {
+        $this->config['reverseButtons'] = true;
+
+        $this->flash();
+
+        return $this;
+    }
+    
+    
+    /**
      * Remove the timer from config option.
      *
      * @return void
