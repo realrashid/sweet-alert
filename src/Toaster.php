@@ -35,7 +35,7 @@ class Toaster
     protected function setDefaultConfig()
     {
         $this->config = [
-            'timer' => env('SWEET_ALERT_AUTOCLOSE', 3000),
+            'timer' => env('ALERT_TIMER', 5000),
             'title' => '',
             'text' => '',
             'showConfirmButton' => false,
@@ -75,7 +75,7 @@ class Toaster
      *
      * @return RealRashid\SweetAlert\Toaster::alert();
      */
-    public function success($title = '', $text)
+    public function success($title = '', $text = '')
     {
         $this->alert($title, $text, 'success');
 
@@ -91,7 +91,7 @@ class Toaster
      *
      * @return RealRashid\SweetAlert\Toaster::alert();
      */
-    public function info($title = '', $text)
+    public function info($title = '', $text = '')
     {
         $this->alert($title, $text, 'info');
 
@@ -107,7 +107,7 @@ class Toaster
      *
      * @return RealRashid\SweetAlert\Toaster::alert();
      */
-    public function warning($title = '', $text)
+    public function warning($title = '', $text = '')
     {
         $this->alert($title, $text, 'warning');
 
@@ -123,7 +123,7 @@ class Toaster
      *
      * @return RealRashid\SweetAlert\Toaster::alert();
      */
-    public function question($title = '', $text)
+    public function question($title = '', $text = '')
     {
         $this->alert($title, $text, 'question');
 
@@ -139,7 +139,7 @@ class Toaster
      *
      * @return RealRashid\SweetAlert\Toaster::alert();
      */
-    public function error($title = '', $text)
+    public function error($title = '', $text = '')
     {
         $this->alert($title, $text, 'error');
 
@@ -156,7 +156,7 @@ class Toaster
      *
      * @return RealRashid\SweetAlert\Toaster::alert();
      */
-    public function html($title, $code, $type)
+    public function html($code = '', $type = '', $title = '')
     {
         $this->config['title'] = $title;
 
@@ -181,7 +181,7 @@ class Toaster
      *
      * @return RealRashid\SweetAlert\Toaster::alert();
      */
-    public function toast($title, $type, $position = 'top-right')
+    public function toast($title = '', $type = '', $position = 'bottom-right')
     {
         $this->config['toast'] = true;
         $this->config['title'] = $title;
@@ -196,7 +196,7 @@ class Toaster
 
     /*
      **
-     * Convert any alert method to Toast
+     * Convert any alert modal to Toast
      *
      * @param string $position
      *
@@ -208,6 +208,21 @@ class Toaster
         $this->config['showCloseButton'] = false;
         $this->config['position'] = $position;
 
+        $this->flash();
+
+        return $this;
+    }
+
+    /*
+     **
+     * Convert any alert modal to html
+     *
+     * @return $this;
+     */
+    public function toHtml()
+    {
+        $this->config['html'] = $this->config['text'];
+        unset($this->config['text']);
         $this->flash();
 
         return $this;
@@ -329,6 +344,20 @@ class Toaster
         $this->config['showCloseButton'] = true;
         $this->config['closeButtonAriaLabel'] = $closeButtonAriaLabel;
 
+        $this->flash();
+
+        return $this;
+    }
+
+    /*
+     **
+     * Hide close button from alert or toast
+     *
+     * @return the $this;
+     */
+    public function hideCloseButton()
+    {
+        $this->config['showCloseButton'] = false;
         $this->flash();
 
         return $this;

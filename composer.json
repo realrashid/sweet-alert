@@ -49,7 +49,7 @@
                 "RealRashid\\SweetAlert\\SweetAlertServiceProvider"
             ],
             "aliases": {
-                "Alert": "RealRashid\\SweetAlert\\Facades"
+                "Alert": "RealRashid\\SweetAlert\\Facades\\Alert"
             }
         }
     },

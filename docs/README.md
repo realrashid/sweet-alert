@@ -16,13 +16,4 @@ ZERO DEPENDENCIES
     <img src="https://raw.github.com/sweetalert2/sweetalert2/master/assets/sweetalert2.gif" width="562" height="388">
 </p>
 
-<h1 align="center">
-    <a href="https://realrashid.github.io/sweet-alert">Documentation</a>
-</h1>
-
-
-## License
-
-SweetAlert2 is open-sourced software licensed under the MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-<p align="center"> <b>Made :heart: with Pakistan<b> </p>
+> note: if you are using sweet-alert v1.0 you can get READMEfor v1.0 from [here](https://github.com/realrashid/sweet-alert/blob/1.0/readme.md)

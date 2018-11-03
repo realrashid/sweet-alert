@@ -18,8 +18,14 @@ class SweetAlertServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/Views', 'sweetalert');
 
         $this->publishes(
-            [__DIR__ . '/Views' => resource_path('views/vendor/sweetalert'), ]
+            [
+                __DIR__ . '/Views' => resource_path('views/vendor/sweetalert'),
+            ]
         );
+
+        $this->publishes([
+           __DIR__.'/js' => public_path('vendor/sweetalert'),
+        ], 'public');
     }
 
     /**
@@ -31,7 +37,8 @@ class SweetAlertServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             'RealRashid\SweetAlert\Storage\SessionStore',
-            'RealRashid\SweetAlert\Storage\AlertSessionStore'
+            'RealRashid\SweetAlert\Storage\AlertSessionStore',
+            'RealRashid\SweetAlert\ToSweetAlert'
         );
         $this->app->singleton('alert', function ($app) {
             return $this->app->make('RealRashid\SweetAlert\Toaster');
