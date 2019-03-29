@@ -148,6 +148,38 @@ class Toaster
 
     /*
      **
+     * Display a message with a custom image and CSS animation disabled.
+     *
+     * @param string $title
+     * @param string $text
+     * @param string $imageUrl
+     * @param string $imageWidth
+     * @param string $imageAlt
+     *
+     * @return RealRashid\SweetAlert\Toaster::alert();
+     */
+    public function image($title = '', $text = '', $imageUrl, $imageWidth = 400, $imageHeight = 200, $imageAlt = '')
+    {
+        // $this->alert($title, $text, 'error');
+        $this->config['title'] = $title;
+        $this->config['text'] = $text;
+        $this->config['imageUrl'] = $imageUrl;
+        $this->config['imageWidth'] = $imageWidth;
+        $this->config['imageHeight'] = $imageHeight;
+        if(!is_null($imageAlt)){
+            $this->config['imageAlt'] = $imageAlt;
+        }else{
+            $this->config['imageAlt'] = $title;
+        }
+        $this->config['animation'] = false;
+
+        $this->flash();
+
+        return $this;
+    }
+
+    /*
+     **
      * Display a html typed alert message with html code.
      *
      * @param string $title
@@ -156,7 +188,7 @@ class Toaster
      *
      * @return RealRashid\SweetAlert\Toaster::alert();
      */
-    public function html($code = '', $type = '', $title = '')
+    public function html($title = '', $code = '', $type = '')
     {
         $this->config['title'] = $title;
 
@@ -230,6 +262,24 @@ class Toaster
 
     /*
      **
+     * Add a custom image to alert
+     *
+     * @param string $imageUrl
+     *
+     * @return RealRashid\SweetAlert\Toaster::alert();
+     */
+    public function addImage($imageUrl)
+    {
+        $this->config['imageUrl'] = $imageUrl;
+        $this->config['showCloseButton'] = true;
+        unset($this->config['type']);
+        $this->flash();
+
+        return $this;
+    }
+
+    /*
+     **
      * Add footer section to alert()
      *
      * @param string $code
@@ -239,6 +289,23 @@ class Toaster
     public function footer($code)
     {
         $this->config['footer'] = $code;
+
+        $this->flash();
+
+        return $this;
+    }
+
+    /*
+     **
+     * positioned alert dialog
+     *
+     * @param bool $milliseconds
+     *
+     * @return RealRashid\SweetAlert\Toaster::alert();
+     */
+    public function position($position = 'top-end')
+    {
+        $this->config['position'] = $position;
 
         $this->flash();
 
@@ -275,9 +342,9 @@ class Toaster
 
     /*
      **
-     * can any alert after param $milliseconds
+     * auto close any alert after $milliseconds
      *
-     * @param bool $milliseconds
+     * @param int $milliseconds
      *
      * @return RealRashid\SweetAlert\Toaster::alert();
      */
@@ -367,6 +434,7 @@ class Toaster
      * Reverse buttons position
      *
      * @return RealRashid\SweetAlert\Toaster::alert();
+     * by: https://github.com/Faber44/
      */
     public function reverseButtons()
     {
@@ -376,8 +444,8 @@ class Toaster
 
         return $this;
     }
-    
-    
+
+
     /**
      * Remove the timer from config option.
      *
