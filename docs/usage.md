@@ -6,35 +6,38 @@ Import Alert Facade first!
 
 ```php
 use RealRashid\SweetAlert\Facades\Alert;
-``` 
+```
 or
 
-```php 
+```php
 Use Alert;
 ```
-in your controller
- ```php 
+in your controller method
+ ```php
  Alert::alert('Title', 'Message', 'Type');
  ```
- ```php 
+ ```php
  Alert::success('Success Title', 'Success Message');
  ```
- ```php 
+ ```php
  Alert::info('Info Title', 'Info Message');
  ```
- ```php 
+ ```php
  Alert::warning('Warning Title', 'Warning Message');
  ```
- ```php 
+ ```php
  Alert::error('Error Title', 'Error Message');
  ```
- ```php 
+ ```php
  Alert::question('Question Title', 'Question Message');
  ```
- ```php 
+ ```php
+ Alert::image('Image Title!','Image Description','Image URL','Image Width','Image Height');
+ ```
+ ```php
  Alert::html('Html Title', 'Html Code', 'Type');
  ```
- ```php 
+ ```php
  Alert::toast('Toast Message', 'Toast Type', 'Toast Position');
  ```
 
@@ -42,36 +45,40 @@ in your controller
 
 #### Alert
 
- ```php 
+ ```php
  alert('Title','Lorem Lorem Lorem', 'success');
  ```
 
- ```php 
+ ```php
  alert()->success('Title','Lorem Lorem Lorem');
  ```
 
- ```php 
+ ```php
  alert()->info('Title','Lorem Lorem Lorem');
  ```
 
- ```php 
+ ```php
  alert()->warning('Title','Lorem Lorem Lorem');
  ```
 
- ```php 
- alert()->question('Title','Lorem Lorem Lorem');
- ```
-
- ```php 
+  ```php
  alert()->error('Title','Lorem Lorem Lorem');
  ```
 
- ```php 
+ ```php
+ alert()->question('Title','Lorem Lorem Lorem');
+ ```
+
+ ```php
+ alert()->image('Image Title!','Image Description','Image URL','Image Width','Image Height');
+ ```
+
+ ```php
  alert()->html('<i>HTML</i> <u>example</u>'," You can use <b>bold text</b>, <a href='//github.com'>links</a> and other HTML tags ",'success');
  ```
 
 #### Toast
 
- ```php 
+ ```php
  toast('Your Post as been submited!','success','top-right');
  ```

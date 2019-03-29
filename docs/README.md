@@ -3,7 +3,6 @@
 <a href="https://packagist.org/packages/realrashid/sweet-alert"><img src="https://poser.pugx.org/realrashid/sweet-alert/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/realrashid/sweet-alert"><img src="https://poser.pugx.org/realrashid/sweet-alert/license.svg" alt="License"></a>
 <a href="https://www.patreon.com/realrashid"><img alt="Support me on Patreon" src="http://ionicabizau.github.io/badges/patreon.svg"></a>
-<a href="https://liberapay.com/realrashid/donate"><img alt="Support me on Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
 </p>
 
 # Introduction

@@ -4,7 +4,7 @@
 
 After installing the sweet-alert package, register the
 
-```php 
+```php
 RealRashid\SweetAlert\SweetAlertServiceProvider::class
 ```
 in your `config/app.php` configuration file:
@@ -28,13 +28,13 @@ Also, add the `Alert` facade to the `aliases` array in your `app` configuration 
 in your master layout
 
 ```php
-@include('sweetalert::alert')`
+@include('sweetalert::alert')
 ```
 
 and run the below command to publish the sweetalert.all.js in your public assets.
 
 ```bash
-php artisan vendor:publish --tag=public
+php artisan vendor:publish --provider="RealRashid\SweetAlert\SweetAlertServiceProvider"
 ```
 
 > note: the javascript library of sweetalert.all.js is already loaded in above included view

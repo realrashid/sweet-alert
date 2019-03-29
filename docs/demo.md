@@ -30,6 +30,16 @@ alert()->warning('WarningAlert','Lorem ipsum dolor sit amet.');
     <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/alert/WarningAlert.png" alt="WarningAlert">
 </p>
 
+##### Error Alert
+
+``` php
+alert()->error('ErrorAlert','Lorem ipsum dolor sit amet.');
+```
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/alert/ErrorAlert.png" alt="ErrorAlert">
+</p>
+
 ##### Question Alert
 
 ``` php
@@ -40,14 +50,14 @@ alert()->question('QuestionAlert','Lorem ipsum dolor sit amet.');
     <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/alert/QuestionAlert.png" alt="QuestionAlert">
 </p>
 
-##### Error Alert
+##### Image Alert
 
 ``` php
-alert()->error('ErrorAlert','Lorem ipsum dolor sit amet.');
+alert()->image('Image Title!','Image Description','Image URL','Image Width','Image Height');
 ```
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/alert/ErrorAlert.png" alt="ErrorAlert">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/alert/ImageAlert.png" alt="ImageAlert">
 </p>
 
 ##### Html Alert
