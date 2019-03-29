@@ -57,7 +57,7 @@ alert()->image('Image Title!','Image Description','Image URL','Image Width','Ima
 ```
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/alert/ImageAlert.png" alt="ImageAlert">
+    <img src="https://raw.githubusercontent.com/realrashid/sweet-alert/master/imgs/alert/AlertImage.png" alt="ImageAlert">
 </p>
 
 ##### Html Alert
