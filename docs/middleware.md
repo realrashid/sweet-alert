@@ -7,7 +7,7 @@ First thing first
 Let register the middleware in web middleware groups by simply adding the middleware class
 
 ```php
-RealRashid\SweetAlert\ToSweetAlert::class
+\RealRashid\SweetAlert\ToSweetAlert::class
 ```
 
 into the 
