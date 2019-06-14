@@ -19,7 +19,7 @@ autoClose($milliseconds = 5000)
 
 ``` php
 // example:
-toast('Success Toast','success','top-right')->autoClose(5000);
+toast('Success Toast','success')->autoClose(5000);
 ```
 
 ##### Position
@@ -27,10 +27,12 @@ toast('Success Toast','success','top-right')->autoClose(5000);
 `
 position($position = 'top-end')
 `
+> Modal window and Toast position, can be **'top'**, **'top-start'**, **'top-end'**,
+**'center'**, **'center-start'**, **'center-end'**, **'bottom'**, **'bottom-start'**, or **'bottom-end'**.
 
 ``` php
 // example:
-alert('Title','Lorem Lorem Lorem', 'success')->position('top-left');
+alert('Title','Lorem Lorem Lorem', 'success')->position('top-end');
 ```
 
 ##### ShowConfirmButton
@@ -133,4 +135,78 @@ addImage($imageUrl)
 ``` php
 // example:
 alert('Title','Lorem Lorem Lorem', 'success')->addImage('https://unsplash.it/400/200');
+```
+
+##### Width
+
+`
+width('32rem')
+`
+> Modal window width, including paddings (box-sizing: border-box).
+  Can be in px or %.
+  The default width is 32rem.
+
+``` php
+// example:
+alert('Title','Lorem Lorem Lorem', 'success')->width('720px');
+```
+
+##### Padding
+
+`
+padding('1.25rem')
+`
+> Modal window padding. Can be in px or %. The default padding is 1.25rem.
+
+``` php
+// example:
+alert('Title','Lorem Lorem Lorem', 'success')->padding('50px');
+```
+
+##### Background
+
+`
+background('#fff')
+`
+> Modal window background (CSS background property). The default background is '#fff'.
+
+``` php
+// example:
+alert('Title','Lorem Lorem Lorem', 'success')->background('#fff');
+```
+
+##### Animation
+
+`
+animation(true)
+`
+> If set to false, modal CSS animation will be disabled.
+
+``` php
+// example:
+alert('Title','Lorem Lorem Lorem', 'success')->animation(false);
+```
+
+##### Focus Confirm
+
+`
+focusConfirm(true)
+`
+> Set to false if you want to focus the first element in tab order instead of "Confirm"-button by default.
+
+``` php
+// example:
+alert()->question('Are you sure?','You won\'t be able to revert this!')->showCancelButton()->showConfirmButton()->focusConfirm(true);
+```
+
+##### Focus Cancel
+
+`
+focusCancel(false)
+`
+> Set to true if you want to focus the "Cancel"-button by default.
+
+``` php
+// example:
+alert()->question('Are you sure?','You won\'t be able to revert this!')->showCancelButton()->showConfirmButton()->focusCancel(true);
 ```

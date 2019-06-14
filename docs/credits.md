@@ -1,4 +1,4 @@
-## Credits
+# Credits
 
 *   [SweetAlert2](https://github.com/sweetalert2/sweetalert2)
 

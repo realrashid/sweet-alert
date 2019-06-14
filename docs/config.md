@@ -1,29 +1,6 @@
 # Configuration
 
-> Optional in Laravel 5.5 or above
-
-After installing the sweet-alert package, register the
-
-```php
-RealRashid\SweetAlert\SweetAlertServiceProvider::class
-```
-in your `config/app.php` configuration file:
-
-```php
-'providers' => [
-    // Other service providers...
-
-    RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-],
-```
-
-Also, add the `Alert` facade to the `aliases` array in your `app` configuration file:
-
-```php
-'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-```
-
-# Include SweetAlert 2 View
+### Include SweetAlert 2 View
 
 in your master layout
 
@@ -31,11 +8,28 @@ in your master layout
 @include('sweetalert::alert')
 ```
 
-and run the below command to publish the sweetalert.all.js in your public assets.
+and run the below command to publish the package assets.
 
 ```bash
 php artisan vendor:publish --provider="RealRashid\SweetAlert\SweetAlertServiceProvider"
 ```
 
-> note: the javascript library of sweetalert.all.js is already loaded in above included view
+> note: The javascript library of sweetalert2 is already loaded and included in the view with the help of above command!
 
+!> If you don't want to use pre-loaded **sweetalert.all.js** so you can use cdn.
+Just chnage the below .env key.
+
+```php
+// By Default its true 
+// Turn it to false
+SWEET_ALERT_LOCAL=false
+// Add sweetalert2 cdn link
+SWEET_ALERT_CDN=''
+```
+!> You can not use local **sweetalert.all.js** or cdn together!
+
+ex:
+```php
+SWEET_ALERT_LOCAL=true
+SWEET_ALERT_CDN='link'
+```

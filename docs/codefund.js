@@ -1,15 +1,15 @@
 ;(function(window) {
-  window.DocsifyCodefund = {
+  window.Codefund = {
     scriptEl: null,
     create: function(codefundId) {
       return function(hook, vm) {
         hook.ready(function() {
-          window.DocsifyCodefund.injectCodeFundStyle();
+          window.Codefund.injectCodeFundStyle();
         })
 
         hook.doneEach(function () {
-          window.DocsifyCodefund.injectCodeFundScript(codefundId);
-          window.DocsifyCodefund.injectCodeFundContainer();
+          window.Codefund.injectCodeFundScript(codefundId);
+          window.Codefund.injectCodeFundContainer();
         })
       }
     },
@@ -26,20 +26,20 @@
     },
 
     injectCodeFundScript(codefundId) {
-      if (window.DocsifyCodefund.scriptEl) {
-        window.DocsifyCodefund.scriptEl.remove()
+      if (window.Codefund.scriptEl) {
+        window.Codefund.scriptEl.remove()
       }
 
       var script = document.createElement('script')
       script.src = "https://codefund.app/properties/" + codefundId + "/funder.js"
       script.async = "async"
       document.body.appendChild(script)
-      window.DocsifyCodefund.scriptEl = script
+      window.Codefund.scriptEl = script
     },
 
     injectCodeFundStyle() {
       var style = document.createElement('style');
-      window.DocsifyCodefund.injectCodeFundContainer();
+      window.Codefund.injectCodeFundContainer();
       var css = '#cf span.cf-wrapper { background-color: transparent!important } #cf a.cf-text { color: #444!important; font-weight: 400!important; font-size: 10px!important }';
 
       style.type = 'text/css';

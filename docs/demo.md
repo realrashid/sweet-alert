@@ -76,10 +76,12 @@ alert()->html('<i>HTML</i> <u>example</u>',"
 
 # Toast Demo
 
+> Set the Default Toast Position in `config/sweetalert.php` file OR use the `position()` helper method!
+
 ##### Success Toast
 
 ``` php
-toast('Success Toast','success','top-right');
+toast('Success Toast','success');
 ```
 
 <p align="center">
@@ -89,7 +91,7 @@ toast('Success Toast','success','top-right');
 ##### Info Toast
 
 ``` php
-toast('Info Toast','info','top-right');
+toast('Info Toast','info');
 ```
 
 <p align="center">
@@ -99,7 +101,7 @@ toast('Info Toast','info','top-right');
 ##### Warning Toast
 
 ``` php
-toast('Warning Toast','warning','top-right');
+toast('Warning Toast','warning');
 ```
 
 <p align="center">
@@ -109,7 +111,7 @@ toast('Warning Toast','warning','top-right');
 ##### Question Toast
 
 ``` php
-toast('Question Toast','question','top-right');
+toast('Question Toast','question');
 ```
 
 <p align="center">
@@ -119,7 +121,7 @@ toast('Question Toast','question','top-right');
 ##### Error Toast
 
 ``` php
-toast('Error Toast','error','top-right');
+toast('Error Toast','error');
 ```
 
 <p align="center">

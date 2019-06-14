@@ -1,16 +1,21 @@
 /* ===========================================================
- * sweetaler sw.js
+ * SweetAlert sw.js
  * ===========================================================
  * Copyright 2016 @huxpro
  * Licensed under Apache 2.0
  * Register service worker.
  * ========================================================== */
 
-const RUNTIME = 'sweetaler'
+const RUNTIME = 'sweetalert'
 const HOSTNAME_WHITELIST = [
   self.location.hostname,
   'fonts.gstatic.com',
   'fonts.googleapis.com',
+  'github.com',
+  'raw.github.com',
+  'poser.pugx.org',
+  'ionicabizau.github.io',
+  'opencollective.com',
   'unpkg.com'
 ]
 

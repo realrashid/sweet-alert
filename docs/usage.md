@@ -38,8 +38,9 @@ in your controller method
  Alert::html('Html Title', 'Html Code', 'Type');
  ```
  ```php
- Alert::toast('Toast Message', 'Toast Type', 'Toast Position');
+ Alert::toast('Toast Message', 'Toast Type');
  ```
+ > Set the Default Toast Position in `config/sweetalert.php` file OR use the `position()` helper method!
 
 ### Using the helper function
 
@@ -80,5 +81,6 @@ in your controller method
 #### Toast
 
  ```php
- toast('Your Post as been submited!','success','top-right');
+ toast('Your Post as been submited!','success');
  ```
+  > Set the Default Toast Position in `config/sweetalert.php` file OR use the `position()` helper method!

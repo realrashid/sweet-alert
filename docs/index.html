@@ -1,41 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Laravel SweetAlert by Rashid Ali</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
+  <meta property="og:site_name" content="Laravel SweetAlert by Rashid Ali">
   <meta property="og:title" content="sweet-alert">
-  <meta property="og:description" name="description" content="A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE,
-ZERO DEPENDENCIES for Laravel by Rashid Ali">
-  <meta property="og:image" content="https://sweetalert2.github.io/images/apple-touch-icon.png">
+  <meta property="og:description" name="description"
+    content="A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAVASCRIPT'S POPUP BOXES FOR LARAVEL BY RASHID ALI">
+  <meta property="og:image"
+    content="https://placid.app/u/2wagk?hl=Laravel+SweetAlert&subline=A%20BEAUTIFUL,%20RESPONSIVE,%20CUSTOMIZABLE,%20ACCESSIBLE%20(WAI-ARIA)%20REPLACEMENT%20FOR%20JAVASCRIPT%27S%20POPUP%20BOXES%20FOR%20LARAVEL&img=https%3A%2F%2Frealrashid.github.io%2Fsweet-alert%2F">
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:width" content="1200" />
   <meta property="og:url" content="https://realrashid.github.io/sweet-alert">
+
+  <meta itemprop="name" content="sweet-alert">
+  <meta itemprop="description"
+    content="A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAVASCRIPT'S POPUP BOXES FOR LARAVEL BY RASHID ALI">
+  <meta itemprop="image" content="https://sweetalert2.github.io/images/apple-touch-icon.png">
+
+  <meta name="robots" content="index,follow">
+  <meta name="googlebot" content="index,follow">
+
+  <meta name="description"
+    content="A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAVASCRIPT'S POPUP BOXES FOR LARAVEL BY RASHID ALI">
+
   <link rel="icon" href="https://sweetalert2.github.io/images/favicon.png">
   <link rel="apple-touch-icon" href="https://sweetalert2.github.io/images/apple-touch-icon.png">
 
   <meta name="theme-color" content="#f2f4f6">
 
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-  <script src="codefund.js"></script>
 
+  <style>
+    /* ==== GRID SYSTEM ==== */
+
+    .container {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .row {
+      position: relative;
+      width: 100%;
+    }
+
+    .row [class^="col"] {
+      float: left;
+      margin: 8px 2%;
+      min-height: 2px;
+    }
+
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+      width: 96%;
+    }
+
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      /* width: 40%; */
+    }
+
+    .card-container {
+      padding: 2px 16px;
+    }
+  </style>
 </head>
+
 <body>
   <div id="app"></div>
   <script>
     window.$docsify = {
-      auto2top: true,
-      coverpage: true,
-      executeScript: true,
-      loadSidebar: true,
-      subMaxLevel: 2,
-      routerMode: 'history',
-      themeColor: '#3F51B5',
       name: 'sweet-alert',
       repo: 'https://github.com/realrashid/sweet-alert',
+      coverpage: true,
+      themeColor: '#3F51B5',
+      loadSidebar: true,
+      auto2top: true,
+      executeScript: true,
+      subMaxLevel: 2,
       ga: 'UA-106558955-2',
       plugins: [
-        DocsifyCodefund.create('247') // change to your codefund id
       ]
     }
   </script>
@@ -48,4 +108,5 @@ ZERO DEPENDENCIES for Laravel by Rashid Ali">
     }
   </script>
 </body>
+
 </html>
