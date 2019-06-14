@@ -9,4 +9,4 @@ A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAV
 
 
 [GitHub](https://github.com/realrashid/sweet-alert)
-[Get Started](/readme)
+[Get Started](/sweet-alert/readme)
