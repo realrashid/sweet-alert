@@ -35,12 +35,38 @@ class Toaster
     protected function setDefaultConfig()
     {
         $this->config = [
-            'timer' => env('ALERT_TIMER', 5000),
             'title' => '',
             'text' => '',
-            'showConfirmButton' => false,
+            'timer' => config('sweetalert.timer'),
+            'width' => config('sweetalert.width'),
+            'heightAuto' => config('sweetalert.height_auto'),
+            'padding' => config('sweetalert.padding'),
+            'animation' => config('sweetalert.animation'),
+            'showConfirmButton' => config('sweetalert.show_confirm_button'),
+            'showCloseButton' => config('sweetalert.show_close_button'),
         ];
     }
+
+    /**
+     * Sets all default config options for middleware alert.
+     *
+     * @return $config
+     */
+     public function middleware()
+     {
+        unset($this->config['position']);
+        unset($this->config['heightAuto']);
+        unset($this->config['width']);
+        unset($this->config['padding']);
+        unset($this->config['showCloseButton']);
+        
+        $this->config['position'] = config('sweetalert.middleware.toast_position');
+        $this->config['showCloseButton'] = config('sweetalert.middleware.toast_close_button');
+
+        $this->flash();
+
+        return $this;
+     }
 
     /**
      * Flash a message.
@@ -160,7 +186,6 @@ class Toaster
      */
     public function image($title = '', $text = '', $imageUrl, $imageWidth = 400, $imageHeight = 200, $imageAlt = '')
     {
-        // $this->alert($title, $text, 'error');
         $this->config['title'] = $title;
         $this->config['text'] = $text;
         $this->config['imageUrl'] = $imageUrl;
@@ -213,14 +238,14 @@ class Toaster
      *
      * @return RealRashid\SweetAlert\Toaster::alert();
      */
-    public function toast($title = '', $type = '', $position = 'bottom-right')
+    public function toast($title = '', $type = '')
     {
         $this->config['toast'] = true;
         $this->config['title'] = $title;
         $this->config['showCloseButton'] = true;
         $this->config['type'] = $type;
-        $this->config['position'] = $position;
-
+        $this->config['position'] = config('sweetalert.toast_position');
+        $this->config['showConfirmButton'] = false;
         $this->flash();
 
         return $this;
@@ -234,12 +259,18 @@ class Toaster
      *
      * @return RealRashid\SweetAlert\Toaster::alert();
      */
-    public function toToast($position = 'top-right')
+    public function toToast($position = '')
     {
         $this->config['toast'] = true;
-        $this->config['showCloseButton'] = false;
-        $this->config['position'] = $position;
-
+        $this->config['showCloseButton'] = true;
+        if(!empty($position)){
+            $this->config['position'] = $position;
+        }else{
+            $this->config['position'] = config('sweetalert.toast_position');
+        }
+        $this->config['showConfirmButton'] = false;
+        unset($this->config['width']);
+        unset($this->config['padding']);
         $this->flash();
 
         return $this;
@@ -299,7 +330,7 @@ class Toaster
      **
      * positioned alert dialog
      *
-     * @param bool $milliseconds
+     * @param string $position
      *
      * @return RealRashid\SweetAlert\Toaster::alert();
      */
@@ -307,6 +338,105 @@ class Toaster
     {
         $this->config['position'] = $position;
 
+        $this->flash();
+
+        return $this;
+    }
+
+    /*
+     **
+     * Modal window width
+     * including paddings
+     * (box-sizing: border-box).
+     * Can be in px or %. The default width is 32rem
+     * @param string $width
+     * @return RealRashid\SweetAlert\Toaster::alert();
+     */
+    public function width($width = '32rem')
+    {
+        $this->config['width'] = $width;
+
+        $this->flash();
+
+        return $this;
+    }
+
+    /*
+     **
+     * Modal window padding.
+     * The default padding is 1.25rem.
+     * @param string $padding
+     * @return RealRashid\SweetAlert\Toaster::alert();
+     */
+    public function padding($padding = '1.25rem')
+    {
+        $this->config['padding'] = $padding;
+
+        $this->flash();
+
+        return $this;
+    }
+
+    /*
+     **
+     * Modal window background
+     * (CSS background property).
+     * The default background is '#fff'.
+     * @param string $background
+     * @return RealRashid\SweetAlert\Toaster::alert();
+     */
+    public function background($background = '#fff')
+    {
+        $this->config['background'] = $background;
+
+        $this->flash();
+
+        return $this;
+    }
+
+    /*
+     **
+     * Set to false if you want to
+     * focus the first element in tab
+     * order instead of "Confirm"-button by default.
+     * @param bool $focus
+     * @return RealRashid\SweetAlert\Toaster::alert();
+     */
+    public function focusConfirm($focus = true)
+    {
+        $this->config['focusConfirm'] = $focus;
+        unset($this->config['focusCancel']);
+        $this->flash();
+
+        return $this;
+    }
+
+    /*
+     **
+     * Set to true if you want to focus the
+     * "Cancel"-button by default.
+     * @param bool $focus
+     * @return RealRashid\SweetAlert\Toaster::alert();
+     */
+    public function focusCancel($focus = false)
+    {
+        $this->config['focusCancel'] = $focus;
+        unset($this->config['focusConfirm']);
+        $this->flash();
+
+        return $this;
+    }
+
+    /*
+     **
+     * Set to true if you want to focus the
+     * "Cancel"-button by default.
+     * @param bool $animation
+     * @return RealRashid\SweetAlert\Toaster::alert();
+     */
+    public function animation($animation = true)
+    {
+        $this->config['animation'] = $animation;
         $this->flash();
 
         return $this;

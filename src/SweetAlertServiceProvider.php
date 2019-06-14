@@ -15,16 +15,18 @@ class SweetAlertServiceProvider extends ServiceProvider
     {
         $this->registerHelpers();
 
-        $this->loadViewsFrom(__DIR__ . '/Views', 'sweetalert');
-
-        $this->publishes(
-            [
-                __DIR__ . '/Views' => resource_path('views/vendor/sweetalert'),
-            ]
-        );
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'sweetalert');
 
         $this->publishes([
-           __DIR__.'/js' => public_path('vendor/sweetalert'),
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/sweetalert')
+        ], 'view');
+
+        $this->publishes([
+            __DIR__.'/config/sweetalert.php' => config_path('sweetalert.php')
+        ], 'config');
+
+        $this->publishes([
+            __DIR__.'/../resources/js' => public_path('vendor/sweetalert')
         ], 'public');
     }
 

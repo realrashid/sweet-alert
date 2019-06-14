@@ -46,23 +46,23 @@ class ToSweetAlert
         }
 
         if ($request->session()->has('toast_success')) {
-            alert()->toast($request->session()->get('toast_success'), 'success');
+            alert()->toast($request->session()->get('toast_success'), 'success')->middleware();
         }
 
         if ($request->session()->has('toast_info')) {
-            toast($request->session()->get('toast_info'), 'info');
+            toast($request->session()->get('toast_info'), 'info')->middleware();
         }
 
         if ($request->session()->has('toast_warning')) {
-            toast($request->session()->get('toast_warning'), 'warning');
+            toast($request->session()->get('toast_warning'), 'warning')->middleware();
         }
 
         if ($request->session()->has('toast_question')) {
-            toast($request->session()->get('toast_question'), 'question');
+            toast($request->session()->get('toast_question'), 'question')->middleware();
         }
 
         if ($request->session()->has('toast_error')) {
-            toast($request->session()->get('toast_error'), 'error');
+            toast($request->session()->get('toast_error'), 'error')->middleware();
         }
 
         return $next($request);

@@ -1,12 +1,14 @@
 {
     "name": "realrashid/sweet-alert",
     "type": "library",
-    "description": "SweetAlert2 for Laravel 5.5.* by Rashid Ali",
+    "description": "A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAVASCRIPT'S POPUP BOXES FOR LARAVEL BY RASHID ALI",
     "keywords": [
         "laravel",
+        "laravel-package",
         "sweet-alert2",
-        "sweet",
+        "sweet-alert",
         "notifier",
+        "toast",
         "alert",
         "noty"
     ],
@@ -24,20 +26,15 @@
         "email": "realrashid05@gmail.com",
         "issues": "https://github.com/realrashid/sweet-alert/issues",
         "source": "https://github.com/realrashid/sweet-alert",
-        "docs": "https://github.com/realrashid/sweet-alert/README.md"
+        "docs": "https://realrashid.github.io/sweet-alert/"
     },
     "require": {
-        "illuminate/support": "~5.1",
-        "illuminate/session": "~5.1",
-        "php": "~5.6|~7.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": ">=5.4.3",
-        "squizlabs/php_codesniffer": "^2.3"
+        "php": "~5.6|~7.0|~7.1.3",
+        "laravel/framework": "~5.4.0|~5.8.0|~5.9.0"
     },
     "autoload": {
         "psr-4": {
-            "RealRashid\\SweetAlert\\": "src"
+            "RealRashid\\SweetAlert\\": "src/"
         },
         "files": [
             "src/functions.php"
