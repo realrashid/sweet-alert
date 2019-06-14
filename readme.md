@@ -31,6 +31,7 @@ composer require realrashid/sweet-alert
     <a href="https://realrashid.github.io/sweet-alert" target="_blank">Documentation</a>
 </h3>
 <br>
+
 ## License
 
 SweetAlert2 is open-sourced software licensed under the MIT License (MIT). Please see [License File](LICENSE.md) for more information.
