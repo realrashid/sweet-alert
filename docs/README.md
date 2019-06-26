@@ -7,7 +7,7 @@
 A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAVASCRIPT'S POPUP BOXES FOR LARAVEL
 </p>
 <p align="center">
-    <img src="https://raw.github.com/sweetalert2/sweetalert2/master/assets/sweetalert2.gif" width="562" height="388">
+    <img src="https://sweetalert2.github.io/images/sweetalert2.gif" width="562" height="388">
 </p>
 
 <p align="center">
