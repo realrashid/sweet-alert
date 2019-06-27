@@ -1,13 +1,13 @@
 <p align="center">
   <a href="https://realrashid.github.io/sweet-alert/">
-    <img src="https://sweetalert2.github.io/images/swal2-logo.png" alt="SweetAlert2">
+    <img src="imgs/swal2-logo.png" alt="SweetAlert2">
   </a>
 </p>
 <p align="center">
 A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAVASCRIPT'S POPUP BOXES FOR LARAVEL
 </p>
 <p align="center">
-    <img src="https://sweetalert2.github.io/images/sweetalert2.gif" width="562" height="388">
+    <img src="imgs/sweetalert.gif" width="562" height="388">
 </p>
 
 <p align="center">

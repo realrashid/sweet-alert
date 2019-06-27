@@ -1,15 +1,15 @@
 * Getting started
 
-  * [Installation](install.md)
-  * [Configuration](config.md)
-  * [Environment Variables](environment.md)
-  * [Usage](usage?id=usage)
-  * [Middleware](middleware?id=middleware)
-  * [Helpers](helpers?id=helpers)
-  * [Demo](demo)
-  * [Changelog](changelog)
+  * [Installation](sweet-alert/install.md)
+  * [Configuration](sweet-alert/config.md)
+  * [Environment Variables](sweet-alert/environment.md)
+  * [Usage](sweet-alert/usage?id=usage)
+  * [Middleware](sweet-alert/middleware?id=middleware)
+  * [Helpers](sweet-alert/helpers?id=helpers)
+  * [Demo](sweet-alert/demo)
+  * [Changelog](sweet-alert/changelog)
 
 * Video Tutorial
-    * [Tutorial](tutorial.md)
+    * [Tutorial](sweet-alert/tutorial.md)
 * Credits
-    * [Credits](credits.md)
+    * [Credits](sweet-alert/credits.md)
