@@ -2,6 +2,17 @@
 
 All notable changes to `sweet-alert` will be documented in this file.
 
+## v2.0.2 - 2019-09-10
+- Added Missing ^ indicator prevents Laravel from updating to 6.0.1 and up
+- Docs Updated
+- Fix some bugs
+
+## v2.0.1 - 2019-09-06
+- Added support for Laravel 6.0
+- This release fixed #46
+- Docs Updated
+- Fix some bugs
+
 ## v2.0 - 2019-06-14
 - Upgraded SweetAlert2 to latest version
 - Added width() helper method
