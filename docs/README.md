@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://realrashid.github.io/sweet-alert/">
-    <img src="imgs/swal2-logo.png" alt="SweetAlert2">
+    <img src="imgs/logo/logo.png" alt="SweetAlert2">
   </a>
 </p>
 <p align="center">

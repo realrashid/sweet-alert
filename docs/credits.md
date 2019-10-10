@@ -2,6 +2,8 @@
 
 *   [SweetAlert2](https://github.com/sweetalert2/sweetalert2)
 
+* Logo design by [Eric L. Barnes](https://ericlbarnes.com)
+
 # Contributing
 
 Please see [CONTRIBUTING](https://github.com/realrashid/sweet-alert/blob/master/CONTRIBUTING.md) and [CODE_OF_CONDUCT](https://github.com/realrashid/sweet-alert/blob/master/CODE_OF_CONDUCT.md) for details.
