@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://realrashid.github.io/sweet-alert/">
-    <img src="https://github.com/sweetalert2/sweetalert2/raw/master/assets/swal2-logo.png" alt="SweetAlert2">
+    <img src="docs/imgs/logo/logo.png" alt="SweetAlert2">
   </a>
 </p>
 <p align="center">
@@ -39,5 +39,3 @@ SweetAlert2 is open-sourced software licensed under the MIT License (MIT). Pleas
 <p align="center"> <b>Made :heart: with Pakistan<b> </p>
 
 > note: if you are using sweet-alert v1.0 you can get README for v1.0 from [here](https://github.com/realrashid/sweet-alert/blob/1.0/readme.md)
-
-* Logo design by [Eric L. Barnes](https://ericlbarnes.com)
