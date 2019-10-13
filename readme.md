@@ -36,6 +36,15 @@ composer require realrashid/sweet-alert
 
 SweetAlert2 is open-sourced software licensed under the MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-<p align="center"> <b>Made :heart: with Pakistan<b> </p>
+<p align="center"> <b>Made ❤️ with Pakistan<b> </p>
+
+## ❤️ Open-Source Software - Give ⭐️
+
+I have included the awesome `symfony/thanks` composer package as a dev
+dependency.
+Let your OS package maintainers know you appreciate them by starring
+the packages you use. Simply run `composer thanks` after installing this package.
+(And not to worry, since it's a dev-dependency it won't be installed in your
+live environment.)
 
 > note: if you are using sweet-alert v1.0 you can get README for v1.0 from [here](https://github.com/realrashid/sweet-alert/blob/1.0/readme.md)
