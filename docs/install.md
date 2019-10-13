@@ -6,7 +6,6 @@ To get started with SweetAlert2, use Composer to add the package to your project
 composer require realrashid/sweet-alert
 ```
 
-!> Optional in Laravel 5.5 or above!
 !> The Below Step is Optional in Laravel 5.5 or above!
 
 After installing the sweet-alert package, register the service provider
