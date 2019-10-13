@@ -7,6 +7,7 @@ composer require realrashid/sweet-alert
 ```
 
 !> Optional in Laravel 5.5 or above!
+!> The Below Step is Optional in Laravel 5.5 or above!
 
 After installing the sweet-alert package, register the service provider
 
