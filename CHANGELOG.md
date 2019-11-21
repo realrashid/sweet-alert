@@ -2,6 +2,20 @@
 
 All notable changes to `sweet-alert` will be documented in this file.
 
+## v3.0 - 2019-11-20
+- Upgraded SweetAlert2 to latest version
+- Added option to pass SweetAlert2 CDN link from included view
+- Updated `animation($showClass = [], $hideClass = [])`
+- Added `buttonsStyling()` method
+- Added `iconHtml()` method
+- Docs Updated
+- Fix some bugs
+
+## v2.0.3 - 2019-10-13
+- Added symfony/thanks
+- Docs Updated
+- Fix some bugs
+
 ## v2.0.2 - 2019-09-10
 - Added Missing ^ indicator prevents Laravel from updating to 6.0.1 and up
 - Docs Updated

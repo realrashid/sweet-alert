@@ -178,13 +178,47 @@ alert('Title','Lorem Lorem Lorem', 'success')->background('#fff');
 ##### Animation
 
 `
-animation(true)
+animation($showClass = [], $hideClass = [])
 `
 > If set to false, modal CSS animation will be disabled.
 
+Custom animation with [Animate.css](https://daneden.github.io/animate.css/)
+
 ``` php
 // example:
-alert('Title','Lorem Lorem Lorem', 'success')->animation(false);
+alert()->info('InfoAlert','Lorem ipsum dolor sit amet.')
+->animation(
+    [ 'popup' => 'animated tada faster'],
+    [ 'popup' => 'animated fadeInUp faster']
+);
+```
+
+> Note: Animate.css CDN link is imported in package config file,
+
+##### Button Styling
+
+`
+buttonsStyling($buttonsStyling)
+`
+> Apply default styling to buttons.
+If you want to use your own classes (e.g. Bootstrap classes)
+set this parameter to false.
+
+``` php
+// example:
+alert()->success('Post Created', 'Successfully')->buttonsStyling(false);
+```
+
+##### Icon Html
+
+`
+iconHtml($iconHtml)
+`
+> Use any HTML inside icons (e.g. Font Awesome)
+
+``` php
+// example:
+alert()->success('Post Created', 'Successfully')->iconHtml('<i class="far fa-thumbs-up"></i>);
 ```
 
 ##### Focus Confirm

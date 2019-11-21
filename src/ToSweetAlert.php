@@ -35,14 +35,14 @@ class ToSweetAlert
             alert()->info($request->session()->get('info'));
         }
 
-        if ($request->session()->has('error')) {
-            $error = $request->session()->get('error');
+        if ($request->session()->has('errors')) {
+            $error = $request->session()->get('errors');
 
             if (!is_string($error)) {
                 $error = $this->getErrors($error->getMessages());
             }
 
-            alert()->error($error)->toHtml();
+            alert()->error($error);
         }
 
         if ($request->session()->has('toast_success')) {

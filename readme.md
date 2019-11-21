@@ -13,8 +13,6 @@ A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAV
 <p align="center">
 <a href="https://packagist.org/packages/realrashid/sweet-alert" target="_blank"><img src="https://poser.pugx.org/realrashid/sweet-alert/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/realrashid/sweet-alert" target="_blank"><img src="https://poser.pugx.org/realrashid/sweet-alert/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://opencollective.com/sweet-alert#backers" target="_blank"><img alt="Backers on Open Collective" src="https://opencollective.com/sweet-alert/backers/badge.svg"></a>
-<a href="https://opencollective.com/sweet-alert#sponsors" target="_blank"><img alt="Backers on Open Collective" src="https://opencollective.com/sweet-alert/sponsors/badge.svg"></a>
 <a href="https://www.patreon.com/realrashid" target="_blank"><img alt="Support me on Patreon" src="http://ionicabizau.github.io/badges/patreon.svg"></a>
 <a href="https://packagist.org/packages/realrashid/sweet-alert" target="_blank"><img src="https://poser.pugx.org/realrashid/sweet-alert/license.svg" alt="License"></a>
 </p>
@@ -32,19 +30,20 @@ composer require realrashid/sweet-alert
 </h3>
 <br>
 
-## License
-
-SweetAlert2 is open-sourced software licensed under the MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-<p align="center"> <b>Made ❤️ with Pakistan<b> </p>
-
 ## ❤️ Open-Source Software - Give ⭐️
 
 I have included the awesome `symfony/thanks` composer package as a dev
 dependency.
 Let your OS package maintainers know you appreciate them by starring
-the packages you use. Simply run `composer thanks` after installing this package.
+the packages you use.
+Simply run `composer thanks` after installing this package.
 (And not to worry, since it's a dev-dependency it won't be installed in your
 live environment.)
+
+## License
+
+SweetAlert2 is open-sourced software licensed under the MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+<p align="center"> <b>Made ❤️ with Pakistan<b> </p>
 
 > note: if you are using sweet-alert v1.0 you can get README for v1.0 from [here](https://github.com/realrashid/sweet-alert/blob/1.0/readme.md)

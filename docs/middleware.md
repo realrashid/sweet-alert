@@ -7,10 +7,12 @@ First thing first
 Let register the middleware in web middleware groups by simply adding the middleware class
 
 ```php
-\RealRashid\SweetAlert\ToSweetAlert::class
+\RealRashid\SweetAlert\ToSweetAlert::class,
 ```
 
-into the `$middlewareGroups` of your `app/Http/Kernel.php` class.
+into the `$middlewareGroups` of your `app/Http/Kernel.php` file.
+
+> Note: Now all your validation errors will use SweetAlert2!
 
 ### Examples
 
@@ -18,13 +20,39 @@ Now within your controllers, just set your return message and send the proper me
 
 #### Alert
 
+Errors Alert
+
+```php
+public function store(Request $request)
+{
+	//validation
+	$request->validate([
+		'title' => 'required|min:3',
+		'body' => 'required|min:3'
+	]);
+	$task = Task::create($request->all());
+	return redirect('tasks')->with('success', 'Task Created Successfully!');
+	// OR
+	return redirect('tasks')->withSuccess('Task Created Successfully!');
+}
+```
+
 Error Alert
 ```php
-public function FunctionName(Request $request)
+public function store(Request $request)
 {
-	return redirect('login')->with('error', 'Authentication Failed!');
+	$validator = Validator::make($request->all(), [
+		'title' => 'required|min:3',
+		'body' => 'required|min:3'
+	]);
+
+	if ($validator->fails()) {
+		return back()->with('error', $validator->messages()->all()[0])->withInput();
+	}
+	$task = Task::create($request->all());
+	return redirect('tasks')->with('success', 'Task Created Successfully!');
 	// OR
-	return redirect('login')->withError('Authentication Failed!');
+	return redirect('tasks')->withSuccess('Task Created Successfully!');
 }
 ```
 Success Alert
@@ -51,22 +79,38 @@ All available types `error` `success` `info` `warning` `question` .
 
 Error Toast
 ```php
-public function FunctionName(Request $request)
+public function store(Request $request)
 {
-	return redirect('login')->with('toast_error', 'Authentication Failed!');
+	$validator = Validator::make($request->all(), [
+		'title' => 'required|min:3',
+		'body' => 'required|min:3'
+	]);
+
+	if ($validator->fails()) {
+		return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+	}
+	$task = Task::create($request->all());
+	return redirect('tasks')->with('success', 'Task Created Successfully!');
 	// OR
-	return redirect('login')->withToastError('Authentication Failed!');
+	return redirect('tasks')->withSuccess('Task Created Successfully!');
 }
 ```
 Success Toast
 ```php
-public function update(Request $request, Task $task)
+public function store(Request $request)
 {
-	//validation
-	// Updating logic
-	return redirect('tasks')->with('toast_success', 'Successfully modified the task!');
+	$validator = Validator::make($request->all(), [
+		'title' => 'required|min:3',
+		'body' => 'required|min:3'
+	]);
+
+	if ($validator->fails()) {
+		return back()->with('toast_error', $validator->messages()->all()[0])->withInput();
+	}
+	$task = Task::create($request->all());
+	return redirect('tasks')->with('toast_success', 'Task Created Successfully!');
 	// OR
-	return redirect('tasks')->withToastSuccess('Successfully modified the task!');
+	return redirect('tasks')->withToastSuccess('Task Created Successfully!');
 }
 ```
 
@@ -83,6 +127,7 @@ All available types `toast_error` `toast_success` `toast_info` `toast_warning` `
 ```
 SWEET_ALERT_MIDDLEWARE_TOAST_POSITION='top-end'
 SWEET_ALERT_MIDDLEWARE_TOAST_CLOSE_BUTTON=true
+SWEET_ALERT_MIDDLEWARE_ALERT_AUTO_CLOSE=5000
 ```
 
 > Positions **'top'**, **'top-start'**, **'top-end'**,

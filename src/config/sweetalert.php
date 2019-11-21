@@ -1,18 +1,6 @@
 <?php
 
 return [
-    /*
-    |--------------------------------------------------------------------------
-    | SweetAlert2 Local .JS File
-    |--------------------------------------------------------------------------
-    | By default SweetAlert2 use its local sweetalert.all.js
-    | file.
-    |
-    |
-    */
-
-    'local' => env('SWEET_ALERT_LOCAL', true),
-
 
     /*
     |--------------------------------------------------------------------------
@@ -87,7 +75,13 @@ return [
     |
     */
 
-    'animation' => env('SWEET_ALERT_ANIMATION', true),
+    'animation' => [
+        'enable' => env('SWEET_ALERT_ANIMATION_ENABLE', true),
+        'showClass' => env('SWEET_ALERT_ANIMATION_SHOW_CLASS', 'animated fadeInDown faster'),
+        'hideClass' => env('SWEET_ALERT_ANIMATION_HIDE_CLASS', 'animated fadeOutUp faster'),
+    ],
+
+    'animatecss' => env('SWEET_ALERT_ANIMATECSS', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'),
 
     /*
     |--------------------------------------------------------------------------
@@ -141,6 +135,8 @@ return [
         'toast_position' => env('SWEET_ALERT_MIDDLEWARE_TOAST_POSITION', 'top-end'),
 
         'toast_close_button' => env('SWEET_ALERT_MIDDLEWARE_TOAST_CLOSE_BUTTON', true),
+
+        'alert_auto_close' => env('SWEET_ALERT_MIDDLEWARE_ALERT_AUTO_CLOSE', 5000),
     ],
 
 ];
