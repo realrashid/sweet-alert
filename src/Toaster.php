@@ -42,9 +42,7 @@ class Toaster
             'heightAuto' => config('sweetalert.height_auto'),
             'padding' => config('sweetalert.padding'),
             'showConfirmButton' => config('sweetalert.show_confirm_button'),
-            'showCloseButton' => config('sweetalert.show_close_button'),
-            'showClass' => [ 'popup' => 'animated fadeInDown faster'],
-            'hideClass' => [ 'popup' => 'animated fadeOutUp faster'],
+            'showCloseButton' => config('sweetalert.show_close_button')
         ];
     }
 
@@ -432,18 +430,20 @@ class Toaster
 
     /*
      **
+     * Custom animation with [Animate.css](https://daneden.github.io/animate.css/)
      * CSS classes for animations when showing a popup (fade in):
      * CSS classes for animations when hiding a popup (fade out):
-     * @param array $showClass
-     * @param array $hideClass
+     * @param array $showAnimation
+     * @param array $hideAnimation
      * @return RealRashid\SweetAlert\Toaster::alert();
      */
-    public function animation($showClass = [], $hideClass = [])
+    public function animation($showAnimation, $hideAnimation)
     {
-        unset($this->config['showClass']);
-        unset($this->config['hideClass']);
-        $this->config['showClass'] = $showClass;
-        $this->config['hideClass'] = $hideClass;
+        if(!config('sweetalert.animation.enable')){
+            config(['sweetalert.animation.enable' => true]);
+        }
+        $this->config['showClass'] = ['popup' => "animated {$showAnimation}"];
+        $this->config['hideClass'] = ['popup' => "animated {$hideAnimation}"];
         $this->flash();
 
         return $this;

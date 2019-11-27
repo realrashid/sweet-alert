@@ -70,18 +70,17 @@ return [
     |--------------------------------------------------------------------------
     | Animation
     |--------------------------------------------------------------------------
-    | If set to false, modal CSS animation will be disabled.
+    | Custom animation with [Animate.css](https://daneden.github.io/animate.css/)
+    | If set to false, modal CSS animation will be use default ones.
     | For specific modal just use the animation() helper method.
     |
     */
 
     'animation' => [
-        'enable' => env('SWEET_ALERT_ANIMATION_ENABLE', true),
-        'showClass' => env('SWEET_ALERT_ANIMATION_SHOW_CLASS', 'animated fadeInDown faster'),
-        'hideClass' => env('SWEET_ALERT_ANIMATION_HIDE_CLASS', 'animated fadeOutUp faster'),
+        'enable' => env('SWEET_ALERT_ANIMATION_ENABLE', false),
     ],
 
-    'animatecss' => env('SWEET_ALERT_ANIMATECSS', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'),
+    'animatecss' => env('SWEET_ALERT_ANIMATECSS', 'https://cdn.jsdelivr.net/npm/animate.css'),
 
     /*
     |--------------------------------------------------------------------------
