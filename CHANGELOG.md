@@ -2,6 +2,11 @@
 
 All notable changes to `sweet-alert` will be documented in this file.
 
+## v3.0.1 - 2019-11-27
+- Updated `animation($showClass = [], $hideClass = [])` to animation($showAnimation, $hideAnimation)
+- Docs Updated
+- Fixed animations issue
+
 ## v3.0 - 2019-11-20
 - Upgraded SweetAlert2 to latest version
 - Added option to pass SweetAlert2 CDN link from included view

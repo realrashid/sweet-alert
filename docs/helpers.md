@@ -178,19 +178,15 @@ alert('Title','Lorem Lorem Lorem', 'success')->background('#fff');
 ##### Animation
 
 `
-animation($showClass = [], $hideClass = [])
+animation($showAnimation, $hideAnimation)
 `
-> If set to false, modal CSS animation will be disabled.
 
 Custom animation with [Animate.css](https://daneden.github.io/animate.css/)
 
 ``` php
 // example:
 alert()->info('InfoAlert','Lorem ipsum dolor sit amet.')
-->animation(
-    [ 'popup' => 'animated tada faster'],
-    [ 'popup' => 'animated fadeInUp faster']
-);
+->animation('tada faster','fadeInUp faster');
 ```
 
 > Note: Animate.css CDN link is imported in package config file,
