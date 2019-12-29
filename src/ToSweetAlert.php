@@ -12,6 +12,7 @@ class ToSweetAlert
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed
+     * @author Rashid Ali <realrashid05@gmail.com>
      */
     public function handle($request, Closure $next)
     {
@@ -69,16 +70,14 @@ class ToSweetAlert
     }
 
     /**
+     * Get the validation errors
      *
-     *
-     * @param $errors
-     *
-     * @return string
+     * @param object $errors
+     * @author Rashid Ali <realrashid05@gmail.com>
      */
     private function getErrors($errors)
     {
         $errors = collect($errors);
-
         return $errors->flatten()->implode('<br />');
     }
 }
