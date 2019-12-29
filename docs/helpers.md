@@ -240,3 +240,15 @@ focusCancel(false)
 // example:
 alert()->question('Are you sure?','You won\'t be able to revert this!')->showCancelButton()->showConfirmButton()->focusCancel(true);
 ```
+
+##### Timer Progress Bar
+
+`
+timerProgressBar()
+`
+> The timer will have a progress bar at the bottom of a popup. Mostly, this feature is useful with toasts.
+
+``` php
+// example:
+toast('Signed in successfully','success')->timerProgressBar();
+```

@@ -11,7 +11,7 @@ Include `'sweetalert::alert'` in master layout
 and run the below command to publish the package assets.
 
 ```bash
-php artisan vendor:publish --provider="RealRashid\SweetAlert\SweetAlertServiceProvider"
+php artisan sweetalert:publish
 ```
 
 > note: The javascript library of sweetalert2 is already loaded and included in the view with the help of above command!

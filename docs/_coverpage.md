@@ -1,5 +1,5 @@
 ![logo](https://github.com/sweetalert2/sweetalert2/raw/master/assets/swal2-logo.png)
-<h1>sweet-alert <small>3.0.1</small></h1>
+<h1>sweet-alert <small>3.1.0</small></h1>
 
 <h4>By <strong>Rashid Ali</strong></h4>
 

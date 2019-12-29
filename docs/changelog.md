@@ -2,6 +2,19 @@
 
 All notable changes to `sweet-alert` will be documented in this file.
 
+## v3.1.0 - 2019-12-29
+- Upgraded SweetAlert2 to latest version
+- Added Tidelift to funding.yaml
+- Added SECURITY.md in .github/SECURITY.md
+- Added timerProgressBar() method
+- Added PublishCommand to easily publish the package assets
+- Updated question() alert method
+- Refactor SweetAlertServiceProvider class
+- Refactor Toaster class
+- Refactor functions.php file
+- Updated PHPDocBlocks
+- Docs Updated
+
 ## v3.0.1 - 2019-11-27
 - Updated `animation($showClass = [], $hideClass = [])` to animation($showAnimation, $hideAnimation)
 - Docs Updated

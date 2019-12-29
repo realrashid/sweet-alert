@@ -10,7 +10,7 @@ Please see [CONTRIBUTING](https://github.com/realrashid/sweet-alert/blob/master/
 
 # Connect with Me
 
-*   Website: http://realrashid.com
+*   Website: https://realrashid.dev
 *   Email: realrashid05@gmail.com
 *   Twitter: http://twitter.com/rashidali05
 *   Facebook: https://www.facebook.com/rashidali05
