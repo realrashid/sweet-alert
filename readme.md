@@ -30,6 +30,12 @@ composer require realrashid/sweet-alert
 </h3>
 <br>
 
+[[Become a backer](https://opencollective.com/sweet-alert#backer)]
+<a href="https://opencollective.com/sweet-alert#backers" target="_blank"><img src="https://opencollective.com/sweet-alert/backers.svg?width=890"></a>
+## Sponsors
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/sweet-alert#sponsor)]
+<a href="https://opencollective.com/sweet-alert/sponsor/0/website" target="_blank"><img src="https://opencollective.com/sweet-alert/sponsor/0/avatar.svg"></a>
+
 ## ❤️ Open-Source Software - Give ⭐️
 
 I have included the awesome `symfony/thanks` composer package as a dev
