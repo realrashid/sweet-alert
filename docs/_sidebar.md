@@ -9,6 +9,9 @@
   * [Demo](sweet-alert/demo)
   * [Changelog](sweet-alert/changelog)
 
+* For Enterprise
+    * [Enterprise](sweet-alert/enterprise.md)
+
 * Video Tutorial
     * [Tutorial](sweet-alert/tutorial.md)
 * Credits
