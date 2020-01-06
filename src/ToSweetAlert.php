@@ -36,7 +36,7 @@ class ToSweetAlert
             alert()->info($request->session()->get('info'));
         }
 
-        if ($request->session()->has('errors')) {
+        if ($request->session()->has('errors') && config('sweetalert.middleware.auto_display_error_messages')) {
             $error = $request->session()->get('errors');
 
             if (!is_string($error)) {
