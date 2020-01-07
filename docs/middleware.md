@@ -1,6 +1,6 @@
 # Middleware
 
-#### Using the Middleware
+### Using the Middleware
 
 
 First thing first
@@ -12,7 +12,11 @@ Let register the middleware in web middleware groups by simply adding the middle
 
 into the `$middlewareGroups` of your `app/Http/Kernel.php` file.
 
-> Note: Now all your validation errors will use SweetAlert2!
+### Error messages auto displaying
+
+Set the `SWEET_ALERT_AUTO_DISPLAY_ERROR_MESSAGES` .env value to `true` to activate the automatic displaying for the validation error messages.
+
+By default, this is not activated.
 
 ### Examples
 
