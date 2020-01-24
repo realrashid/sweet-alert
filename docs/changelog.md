@@ -2,6 +2,11 @@
 
 All notable changes to `sweet-alert` will be documented in this file.
 
+## v3.1.1 - 2020-01-07
+- Upgraded SweetAlert2 to latest version
+- Added ability to activate or not the middleware error messages
+- Docs Updated
+
 ## v3.1.0 - 2019-12-29
 - Upgraded SweetAlert2 to latest version
 - Added Tidelift to funding.yaml
