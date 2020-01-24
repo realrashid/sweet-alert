@@ -30,7 +30,7 @@
     },
     "require": {
         "php": "^7.2",
-        "laravel/framework": "~5.4.0|~5.8.0|~5.9.0|^6.0"
+        "laravel/framework": "^5.4|^6.0|^7.0"
     },
     "require-dev": {
         "symfony/thanks": "^1.0"

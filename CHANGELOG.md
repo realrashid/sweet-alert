@@ -2,6 +2,10 @@
 
 All notable changes to `sweet-alert` will be documented in this file.
 
+## v3.1.2 - 2020-01-24
+- Upgraded SweetAlert2 to latest version
+- Prepare Laravel 7
+
 ## v3.1.1 - 2020-01-07
 - Upgraded SweetAlert2 to latest version
 - Added ability to activate or not the middleware error messages
