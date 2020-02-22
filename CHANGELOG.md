@@ -2,6 +2,9 @@
 
 All notable changes to `sweet-alert` will be documented in this file.
 
+## v3.1.3 - 2020-02-22
+- Upgraded SweetAlert2 to latest version
+
 ## v3.1.2 - 2020-01-24
 - Upgraded SweetAlert2 to latest version
 - Prepare Laravel 7
