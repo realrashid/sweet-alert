@@ -138,4 +138,29 @@
     'auto_display_error_messages' => env('SWEET_ALERT_AUTO_DISPLAY_ERROR_MESSAGES', false),
 ],
 
+/*
+|--------------------------------------------------------------------------
+| Custom Class
+|--------------------------------------------------------------------------
+| A custom CSS class for the modal:
+|
+*/
+
+'customClass' => [
+
+    'container' => env('SWEET_ALERT_CONTAINER_CLASS'),
+    'popup' => env('SWEET_ALERT_POPUP_CLASS'),
+    'header' => env('SWEET_ALERT_HEADER_CLASS'),
+    'title' => env('SWEET_ALERT_TITLE_CLASS'),
+    'closeButton' => env('SWEET_ALERT_CLOSE_BUTTON_CLASS'),
+    'icon' => env('SWEET_ALERT_ICON_CLASS'),
+    'image' => env('SWEET_ALERT_IMAGE_CLASS'),
+    'content' => env('SWEET_ALERT_CONTENT_CLASS'),
+    'input' => env('SWEET_ALERT_INPUT_CLASS'),
+    'actions' => env('SWEET_ALERT_ACTIONS_CLASS'),
+    'confirmButton' => env('SWEET_ALERT_CONFIRM_BUTTON_CLASS'),
+    'cancelButton' => env('SWEET_ALERT_CANCEL_BUTTON_CLASS'),
+    'footer' => env('SWEET_ALERT_FOOTER_CLASS'),
+],
+
 ```
