@@ -134,9 +134,11 @@ All available types `toast_error` `toast_success` `toast_info` `toast_warning` `
 !> You can not use helper methods with Middleware but you can set default values in `config/sweetalert.php` file! **Recommend** to use the .env keys.
 
 ```
+SWEET_ALERT_MIDDLEWARE_AUTO_CLOSE=false
 SWEET_ALERT_MIDDLEWARE_TOAST_POSITION='top-end'
 SWEET_ALERT_MIDDLEWARE_TOAST_CLOSE_BUTTON=true
-SWEET_ALERT_MIDDLEWARE_ALERT_AUTO_CLOSE=5000
+SWEET_ALERT_MIDDLEWARE_ALERT_CLOSE_TIME=5000
+SWEET_ALERT_AUTO_DISPLAY_ERROR_MESSAGES=true
 ```
 
 > Positions **'top'**, **'top-start'**, **'top-end'**,

@@ -77,11 +77,16 @@ class Toaster
      */
     public function middleware()
     {
-        unset($this->config['position'], $this->config['heightAuto'], $this->config['width'], $this->config['padding'], $this->config['showCloseButton'], $this->config['timer']);
+        unset($this->config['position'], $this->config['heightAuto'], $this->config['width'], $this->config['padding'], $this->config['showCloseButton']);
 
+        if(!config('sweetalert.middleware.autoClose')){
+            $this->removeTimer();
+        }else{
+            unset($this->config['timer']);
+            $this->config['timer'] = config('sweetalert.middleware.timer');
+        }
         $this->config['position'] = config('sweetalert.middleware.toast_position');
         $this->config['showCloseButton'] = config('sweetalert.middleware.toast_close_button');
-        $this->config['timer'] = config('sweetalert.middleware.alert_auto_close');
 
         $this->flash();
 
