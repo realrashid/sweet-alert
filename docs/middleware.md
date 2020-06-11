@@ -2,7 +2,6 @@
 
 ### Using the Middleware
 
-
 First thing first
 Let register the middleware in web middleware groups by simply adding the middleware class
 
@@ -42,6 +41,7 @@ public function store(Request $request)
 ```
 
 Error Alert
+
 ```php
 public function store(Request $request)
 {
@@ -59,7 +59,9 @@ public function store(Request $request)
 	return redirect('tasks')->withSuccess('Task Created Successfully!');
 }
 ```
+
 Success Alert
+
 ```php
 public function store(Request $request)
 {
@@ -77,11 +79,12 @@ return redirect('route')->with('type', 'message');
 return redirect('route')->withType('message');
 ```
 
-All available types `error` `success` `info` `warning` `question` .
+All available types : `error` `success` `info` `warning` `question` .
 
 #### Toast
 
 Error Toast
+
 ```php
 public function store(Request $request)
 {
@@ -99,7 +102,9 @@ public function store(Request $request)
 	return redirect('tasks')->withSuccess('Task Created Successfully!');
 }
 ```
+
 Success Toast
+
 ```php
 public function store(Request $request)
 {
@@ -135,5 +140,4 @@ SWEET_ALERT_MIDDLEWARE_ALERT_AUTO_CLOSE=5000
 ```
 
 > Positions **'top'**, **'top-start'**, **'top-end'**,
-**'center'**, **'center-start'**, **'center-end'**, **'bottom'**, **'bottom-start'**, or **'bottom-end'**.
-
+> **'center'**, **'center-start'**, **'center-end'**, **'bottom'**, **'bottom-start'**, or **'bottom-end'**.
