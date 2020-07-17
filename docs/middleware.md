@@ -51,7 +51,7 @@ public function store(Request $request)
 	]);
 
 	if ($validator->fails()) {
-		return back()->with('error', $validator->messages()->all()[0])->withInput();
+		return back()->with('errors', $validator->messages()->all()[0])->withInput();
 	}
 	$task = Task::create($request->all());
 	return redirect('tasks')->with('success', 'Task Created Successfully!');
