@@ -15,6 +15,37 @@
 
 /*
 |--------------------------------------------------------------------------
+| Always load the sweetalert.all.js
+|--------------------------------------------------------------------------
+| There might be situations where you will always want the sweet alert
+| js package to be there for you. (for eg. you might use it heavily to
+| show notifications or you might want to use the native js) then this
+| might be handy.
+|
+*/
+
+'alwaysLoadJS' => env('SWEET_ALERT_ALWAYS_LOAD_JS', false),
+
+/*
+|--------------------------------------------------------------------------
+| Never load the sweetalert.all.js
+|--------------------------------------------------------------------------
+| If you want to handle the sweet alert js package by yourself
+| (for eg. you might want to use laravel mix) then this can be
+| handy.
+| If you set always load js to true & never load js to false,
+| it's going to prioritize the never load js.
+|
+| alwaysLoadJs = true  & neverLoadJs = true  => js will not be loaded
+| alwaysLoadJs = true  & neverLoadJs = false => js will be loaded
+| alwaysLoadJs = false & neverLoadJs = false => js will be loaded when
+| you set alert/toast by using the facade/helper functions.
+*/
+
+'neverLoadJS' => env('SWEET_ALERT_NEVER_LOAD_JS', false),
+
+/*
+|--------------------------------------------------------------------------
 | AutoClose Timer
 |--------------------------------------------------------------------------
 |
