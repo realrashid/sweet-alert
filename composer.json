@@ -9,8 +9,8 @@
         "sweet-alert",
         "notifier",
         "toast",
-        "alert",
-        "noty"
+        "noty",
+        "alert"
     ],
     "homepage": "https://github.com/realrashid/sweet-alert",
     "license": "MIT",
