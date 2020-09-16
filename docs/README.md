@@ -22,4 +22,11 @@ onClick="ga('send', 'event', 'Support me on Patreon Button', 'Click', 'Support m
 onClick="ga('send', 'event', 'License Button', 'Click', 'License');"><img src="https://poser.pugx.org/realrashid/sweet-alert/license.svg" alt="License"></a>
 </p>
 
+# Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
+[[Become a sponsor](https://opencollective.com/sweet-alert#sponsor)]
+
+<a href="https://www.git-zen.com/?utm_source=https://realrashid.github.io/sweet-alerts&utm_medium=sweetalert-docs&utm_campaign=sweet-alert" target="_blank"><img src="https://www.git-zen.com/images/logo-small-trans.png"></a>
+
 !> note: if you are using sweet-alert v1.0 you can get README for v1.0 from [here](https://github.com/realrashid/sweet-alert/blob/1.0/readme.md)
