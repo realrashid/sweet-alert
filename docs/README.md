@@ -13,13 +13,13 @@ A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAV
 
 <p align="center">
 <a href="https://packagist.org/packages/realrashid/sweet-alert" target="_blank"
-onClick="ga('send', 'event', 'Total Downloads Button', 'Click', 'Total Downloads');"><img src="https://poser.pugx.org/realrashid/sweet-alert/d/total.svg" alt="Total Downloads"></a>
+onClick="ga('send', 'event', 'Click Event', 'Click', 'Total Downloads');"><img src="https://poser.pugx.org/realrashid/sweet-alert/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/realrashid/sweet-alert" target="_blank"
-onClick="ga('send', 'event', 'Latest Stable Version Button', 'Click', 'Latest Stable Version');"><img src="https://poser.pugx.org/realrashid/sweet-alert/v/stable.svg" alt="Latest Stable Version"></a>
+onClick="ga('send', 'event', 'Click Event', 'Click', 'Latest Stable Version');"><img src="https://poser.pugx.org/realrashid/sweet-alert/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://www.patreon.com/realrashid" target="_blank"
-onClick="ga('send', 'event', 'Support me on Patreon Button', 'Click', 'Support me on Patreon');"><img alt="Support me on Patreon" src="http://ionicabizau.github.io/badges/patreon.svg"></a>
+onClick="ga('send', 'event', 'Click Event', 'Click', 'Support me on Patreon');"><img alt="Support me on Patreon" src="http://ionicabizau.github.io/badges/patreon.svg"></a>
 <a href="https://packagist.org/packages/realrashid/sweet-alert" target="_blank"
-onClick="ga('send', 'event', 'License Button', 'Click', 'License');"><img src="https://poser.pugx.org/realrashid/sweet-alert/license.svg" alt="License"></a>
+onClick="ga('send', 'event', 'Click Event', 'Click', 'License');"><img src="https://poser.pugx.org/realrashid/sweet-alert/license.svg" alt="License"></a>
 </p>
 
 # Sponsors
@@ -27,6 +27,6 @@ onClick="ga('send', 'event', 'License Button', 'Click', 'License');"><img src="h
 Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
 [[Become a sponsor](https://opencollective.com/sweet-alert#sponsor)]
 
-<a href="https://www.git-zen.com/?utm_source=https://realrashid.github.io/sweet-alerts&utm_medium=sweetalert-docs&utm_campaign=sweet-alert" target="_blank"><img src="https://www.git-zen.com/images/logo-small-trans.png"></a>
+<a href="https://www.git-zen.com/?utm_source=https://realrashid.github.io/sweet-alert&utm_medium=sweetalert-docs&utm_campaign=sweet-alert" target="_blank" onClick="ga('send', 'event', 'Click Event', 'Click', 'GitZen Logo');"><img src="https://www.git-zen.com/images/logo-small-trans.png"></a>
 
 !> note: if you are using sweet-alert v1.0 you can get README for v1.0 from [here](https://github.com/realrashid/sweet-alert/blob/1.0/readme.md)
