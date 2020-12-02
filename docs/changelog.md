@@ -2,6 +2,11 @@
 
 All notable changes to `sweet-alert` will be documented in this file.
 
+## v3.2.0 - 2020-12-02
+- Added PHP8 Support
+- Upgraded SweetAlert2 to latest version
+- Docs Updated
+
 ## v3.1.7 - 2020-09-09
 - Added Support for Laravel 8
 - Upgraded SweetAlert2 to latest version
