@@ -56,6 +56,6 @@ live environment.)
 
 SweetAlert2 is open-sourced software licensed under the MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-<p align="center"> <b>Made ❤️ with Pakistan<b> </p>
+<p align="center"> <b>Made with ❤️ from Pakistan<b> </p>
 
 > note: if you are using sweet-alert v1.0 you can get README for v1.0 from [here](https://github.com/realrashid/sweet-alert/blob/1.0/readme.md)
