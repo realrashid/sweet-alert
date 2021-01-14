@@ -20,4 +20,4 @@ Please see [CONTRIBUTING](https://github.com/realrashid/sweet-alert/blob/master/
 
 SweetAlert2 is open-sourced software licensed under the MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-<p align="center"> <b>Made :heart: with Pakistan<b> </p>
+<p align="center"> <b>Made with ❤️ from Pakistan<b> </p>
