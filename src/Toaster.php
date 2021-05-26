@@ -424,8 +424,8 @@ class Toaster
         if (!config('sweetalert.animation.enable')) {
             config(['sweetalert.animation.enable' => true]);
         }
-        $this->config['showClass'] = ['popup' => "animated {$showAnimation}"];
-        $this->config['hideClass'] = ['popup' => "animated {$hideAnimation}"];
+        $this->config['showClass'] = ['popup' => "animate__animated {$showAnimation}"];
+        $this->config['hideClass'] = ['popup' => "animate__animated {$hideAnimation}"];
 
         $this->flash();
         return $this;
