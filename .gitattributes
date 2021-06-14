@@ -1,0 +1,6 @@
+# https://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
+
+/.gitattributes     export-ignore
+/.gitignore         export-ignore
+/docs               export-ignore
+/imgs               export-ignore
