@@ -2,6 +2,12 @@
 
 All notable changes to `sweet-alert` will be documented in this file.
 
+## v4.0.0 - 2021-06-14
+- Bug Fixes
+- Upgraded SweetAlert2 to latest version
+- .gitattributes file
+- Docs Updated
+
 ## v3.2.3 - 2021-05-26
 - Bug Fixes
 - Upgraded SweetAlert2 to latest version
