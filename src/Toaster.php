@@ -51,6 +51,7 @@ class Toaster
             'padding' => config('sweetalert.padding'),
             'showConfirmButton' => config('sweetalert.show_confirm_button'),
             'showCloseButton' => config('sweetalert.show_close_button'),
+            'timerProgressBar' => config('sweetalert.timer_progress_bar'),
             'customClass' => [
                 'container' => config('sweetalert.customClass.container'),
                 'popup' => config('sweetalert.customClass.popup'),

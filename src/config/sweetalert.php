@@ -154,6 +154,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Progress Bar
+    |--------------------------------------------------------------------------
+    | If set to true, a progress bar at the bottom of a popup will be shown.
+    | It can be useful with toasts.
+    |
+    */
+
+    'timer_progress_bar' => env('SWEET_ALERT_TIMER_PROGRESS_BAR', false),
+
+    /*
+    |--------------------------------------------------------------------------
     | Middleware
     |--------------------------------------------------------------------------
     | Modal window or toast, config for the Middleware
