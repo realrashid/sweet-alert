@@ -19,7 +19,7 @@ A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAV
 
 # Install
 
-To get started with SweetAlert2, use Composer to add the package to your project's dependencies:
+Untuk memakai SweetAlert2, install di Composer untuk menambah package ke project anda:
 
 ```
 composer require realrashid/sweet-alert
@@ -41,16 +41,6 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [[Become a sponsor](https://opencollective.com/sweet-alert#sponsor)]
 
 <a href="https://www.git-zen.com/?utm_source=https://github.com/realrashid/sweet-alert&utm_medium=github&utm_campaign=sweet-alert" target="_blank"><img src="https://www.git-zen.com/images/logo-small-trans.png"></a>
-
-## ❤️ Open-Source Software - Give ⭐️
-
-I have included the awesome `symfony/thanks` composer package as a dev
-dependency.
-Let your OS package maintainers know you appreciate them by starring
-the packages you use.
-Simply run `composer thanks` after installing this package.
-(And not to worry, since it's a dev-dependency it won't be installed in your
-live environment.)
 
 ## License
 
