@@ -3,9 +3,7 @@
     <img src="docs/imgs/logo/logo.png" alt="SweetAlert2">
   </a>
 </p>
-<p align="center">
-A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAVASCRIPT'S POPUP BOXES FOR LARAVEL
-</p>
+
 <p align="center">
     <img src="https://raw.github.com/sweetalert2/sweetalert2/master/assets/sweetalert2.gif" width="562" height="388">
 </p>
