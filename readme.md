@@ -17,12 +17,14 @@
 
 # Install
 
-Untuk memakai SweetAlert2, install di Composer untuk menambah package ke project anda:
+Untuk memakai SweetAlert2, install package terlebih dahulu di Composer, untuk ditambahkan ke project anda:
 
 ```
 composer require realrashid/sweet-alert
 ```
 <br>
+
+<h3>Untuk detail penginstallan lebih lanjut, silahkan klik dokumentasi dibawah!</h3>
 <h3 align="center">
     <a href="https://realrashid.github.io/sweet-alert" target="_blank">Documentation</a>
 </h3>
