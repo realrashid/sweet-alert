@@ -24,7 +24,7 @@ composer require realrashid/sweet-alert
 ```
 <br>
 
-<h3>Untuk detail penginstallan lebih lanjut, silahkan klik dokumentasi dibawah!</h3>
+<h3>Untuk detail penginstallan lebih lanjut, silahkan klik dokumentasi dibawah!!</h3>
 <h3 align="center">
     <a href="https://realrashid.github.io/sweet-alert" target="_blank">Documentation</a>
 </h3>
