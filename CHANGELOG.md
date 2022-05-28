@@ -2,6 +2,11 @@
 
 All notable changes to `sweet-alert` will be documented in this file.
 
+## v5.1.0 - 2022-05-28
+- Added Laravel 9 Support
+- Bug Fixes
+- Docs Updated
+
 ## v5.0.0 - 2022-02-04
 - Added Laravel 9 Support
 - Bug Fixes
