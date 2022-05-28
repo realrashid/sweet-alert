@@ -53,7 +53,7 @@ alert()->question('QuestionAlert','Lorem ipsum dolor sit amet.');
 ##### Image Alert
 
 ``` php
-alert()->image('Image Title!','Image Description','Image URL','Image Width','Image Height');
+alert()->image('Image Title!','Image Description','Image URL','Image Width','Image Height','Image Alt');
 ```
 
 <p align="center">

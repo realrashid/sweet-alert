@@ -41,7 +41,7 @@ Alert::question('Question Title', 'Question Message');
 ```
 
 ```php
-Alert::image('Image Title!','Image Description','Image URL','Image Width','Image Height');
+Alert::image('Image Title!','Image Description','Image URL','Image Width','Image Height', 'Image Alt');
 ```
 
 ```php
@@ -83,7 +83,7 @@ alert()->question('Title','Lorem Lorem Lorem');
 ```
 
 ```php
-alert()->image('Image Title!','Image Description','Image URL','Image Width','Image Height');
+alert()->image('Image Title!','Image Description','Image URL','Image Width','Image Height', 'Image Alt');
 ```
 
 ```php
