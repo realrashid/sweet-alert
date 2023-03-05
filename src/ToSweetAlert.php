@@ -17,23 +17,51 @@ class ToSweetAlert
     public function handle($request, Closure $next)
     {
         if ($request->session()->has('success')) {
-            alert()->success($request->session()->get('success'));
+            alert()->success(
+                is_array($request->session()->get('success')) // if array is passed, put the 1st param as a title
+                    ? $request->session()->get('success')[0]
+                    : $request->session()->get('success') // else put the whole value as title
+            ,
+                is_array($request->session()->get('success')) // if array is passed, put the 1st param as a description
+                    ? $request->session()->get('success')[1]
+                    : null                                      // else put nothing as description
+            );
         }
 
         if ($request->session()->has('info')) {
-            alert()->info($request->session()->get('info'));
+            alert()->info(
+                is_array($request->session()->get('info'))
+                    ? $request->session()->get('info')[0]
+                    : $request->session()->get('info')
+            ,
+                is_array($request->session()->get('info'))
+                    ? $request->session()->get('info')[1]
+                    : null
+            );
         }
 
         if ($request->session()->has('warning')) {
-            alert()->warning($request->session()->get('warning'));
+            alert()->warning(
+                is_array($request->session()->get('warning'))
+                    ? $request->session()->get('warning')[0]
+                    : $request->session()->get('warning')
+            ,
+                is_array($request->session()->get('warning'))
+                    ? $request->session()->get('warning')[1]
+                    : null
+            );
         }
 
         if ($request->session()->has('question')) {
-            alert()->question($request->session()->get('question'));
-        }
-
-        if ($request->session()->has('info')) {
-            alert()->info($request->session()->get('info'));
+            alert()->question(
+                is_array($request->session()->get('question'))
+                    ? $request->session()->get('question')[0]
+                    : $request->session()->get('question')
+            ,
+                is_array($request->session()->get('question'))
+                    ? $request->session()->get('question')[1]
+                    : null
+            );
         }
 
         if ($request->session()->has('errors') && config('sweetalert.middleware.auto_display_error_messages')) {
