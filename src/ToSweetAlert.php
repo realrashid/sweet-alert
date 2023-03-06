@@ -63,6 +63,18 @@ class ToSweetAlert
                     : null
             );
         }
+        
+        if ($request->session()->has('error')) {
+            alert()->question(
+                is_array($request->session()->get('error'))
+                    ? $request->session()->get('error')[0]
+                    : $request->session()->get('error')
+            ,
+                is_array($request->session()->get('error'))
+                    ? $request->session()->get('error')[1]
+                    : null
+            );
+        }
 
         if ($request->session()->has('errors') && config('sweetalert.middleware.auto_display_error_messages')) {
             $error = $request->session()->get('errors');
