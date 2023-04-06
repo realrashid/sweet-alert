@@ -18,7 +18,7 @@ class ToSweetAlert
     {
         $messageTypes = [
             'info',
-           'success',
+            'success',
             'warning',
             'error',
             'question',
@@ -30,7 +30,7 @@ class ToSweetAlert
                     is_array($request->session()->get($message))
                         ? $request->session()->get($message)[0] // if array is passed, put the 1st param as a title
                         : $request->session()->get($message)    // else put the whole value as title
-                ,
+                    ,
                     is_array($request->session()->get($message))
                         ? $request->session()->get($message)[1] // if array is passed, put the 2st param as a description
                         : null                                   // else put nothing as description
