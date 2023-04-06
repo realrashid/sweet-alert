@@ -16,24 +16,26 @@ class ToSweetAlert
      */
     public function handle($request, Closure $next)
     {
-        if ($request->session()->has('success')) {
-            alert()->success($request->session()->get('success'));
-        }
+        $messageTypes = [
+            'info',
+            'success',
+            'warning',
+            'error',
+            'question',
+        ];
 
-        if ($request->session()->has('info')) {
-            alert()->info($request->session()->get('info'));
-        }
-
-        if ($request->session()->has('warning')) {
-            alert()->warning($request->session()->get('warning'));
-        }
-
-        if ($request->session()->has('question')) {
-            alert()->question($request->session()->get('question'));
-        }
-
-        if ($request->session()->has('info')) {
-            alert()->info($request->session()->get('info'));
+        foreach ($messageTypes as $message) {
+            if ($request->session()->has($message)) {
+                alert()->{$message}(
+                    is_array($request->session()->get($message))
+                        ? $request->session()->get($message)[0] // if array is passed, put the 1st param as a title
+                        : $request->session()->get($message)    // else put the whole value as title
+                    ,
+                    is_array($request->session()->get($message))
+                        ? $request->session()->get($message)[1] // if array is passed, put the 2st param as a description
+                        : null                                   // else put nothing as description
+                );
+            }
         }
 
         if ($request->session()->has('errors') && config('sweetalert.middleware.auto_display_error_messages')) {
