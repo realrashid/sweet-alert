@@ -39,3 +39,22 @@ if (!function_exists('toast')) {
         return $alert;
     }
 }
+
+if (!function_exists('confirmDelete')) {
+
+    /**
+     * Return app instance of confirmDelete.
+     *
+     * @param string $title
+     * @param string $text
+     * @author Rashid Ali <realrashid05@gmail.com>
+     */
+    function confirmDelete($title = '', $text = '')
+    {
+        $alert = app('alert');
+        if (!is_null($title)) {
+            return $alert->confirmDelete($title, $text);
+        }
+        return $alert;
+    }
+}

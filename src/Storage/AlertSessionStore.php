@@ -29,6 +29,19 @@ class AlertSessionStore implements SessionStore
         $this->session->flash($key, $data);
     }
 
+    /**
+     * Put a session key and value.
+     *
+     * @param  mixed $key
+     * @param  string $data
+     *
+     * @return mixed
+     */
+    public function put($key, $data)
+    {
+        $this->session->put($key, $data);
+    }
+
     // /**
     //  * Flash multiple key/value pairs.
     //  *

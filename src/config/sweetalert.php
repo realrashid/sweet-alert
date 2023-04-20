@@ -4,6 +4,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Theme
+    |--------------------------------------------------------------------------
+    | The theme to use for SweetAlert2 popups.
+    | Available themes: dark, minimal, borderless, bootstrap-4, material-ui, wordpress-admin, bulma.
+    |
+    */
+
+    'theme' => env('SWEET_ALERT_THEME', 'default'),
+
+    /*
+    |--------------------------------------------------------------------------
     | CDN LINK
     |--------------------------------------------------------------------------
     | By default SweetAlert2 use its local sweetalert.all.js
@@ -99,6 +110,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Background
+    |--------------------------------------------------------------------------
+    |
+    |  Modal window background
+    |   (CSS background property).
+    |  The default background is '#fff'.
+    */
+
+    'background' => env('SWEET_ALERT_BACKGROUND', '#fff'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Animation
     |--------------------------------------------------------------------------
     | Custom animation with [Animate.css](https://daneden.github.io/animate.css/)
@@ -181,7 +204,7 @@ return [
 
         'timer' => env('SWEET_ALERT_MIDDLEWARE_ALERT_CLOSE_TIME', 6000),
 
-        'auto_display_error_messages' => env('SWEET_ALERT_AUTO_DISPLAY_ERROR_MESSAGES', false),
+        'auto_display_error_messages' => env('SWEET_ALERT_AUTO_DISPLAY_ERROR_MESSAGES', true),
     ],
 
     /*
@@ -208,5 +231,23 @@ return [
         'cancelButton' => env('SWEET_ALERT_CANCEL_BUTTON_CLASS'),
         'footer' => env('SWEET_ALERT_FOOTER_CLASS'),
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | confirmDelete
+    |--------------------------------------------------------------------------
+    | customize the configuration options of the confirmation popup.
+    |
+    */
+
+    'confirm_delete_confirm_button_text' => env('SWEET_ALERT_CONFIRM_DELETE_CONFIRM_BUTTON_TEXT', 'Yes, delete it!'),
+    'confirm_delete_confirm_button_color' => env('SWEET_ALERT_CONFIRM_DELETE_CONFIRM_BUTTON_COLOR'),
+    'confirm_delete_cancel_button_color' => env('SWEET_ALERT_CONFIRM_DELETE_CANCEL_BUTTON_COLOR', '#d33'),
+    'confirm_delete_cancel_button_text' => env('SWEET_ALERT_CONFIRM_DELETE_CANCEL_BUTTON_TEXT', 'Cancel'),
+    'confirm_delete_show_cancel_button' => env('SWEET_ALERT_CONFIRM_DELETE_SHOW_CANCEL_BUTTON', true),
+    'confirm_delete_show_close_button' => env('SWEET_ALERT_CONFIRM_DELETE_SHOW_CLOSE_BUTTON', false),
+    'confirm_delete_icon' => env('SWEET_ALERT_CONFIRM_DELETE_ICON', 'warning'),
+    'confirm_delete_show_loader_on_confirm' => env('SWEET_ALERT_CONFIRM_DELETE_SHOW_LOADER_ON_CONFIRM', true),
+
 
 ];
