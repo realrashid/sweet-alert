@@ -15,7 +15,7 @@ into the `$middlewareGroups` of your `app/Http/Kernel.php` file.
 
 Set the `SWEET_ALERT_AUTO_DISPLAY_ERROR_MESSAGES` .env value to `true` to activate the automatic displaying for the validation error messages.
 
-By default, this is not activated.
+Default is <strong>true</strong>.
 
 ### Examples
 

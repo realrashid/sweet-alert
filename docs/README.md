@@ -4,8 +4,8 @@
     <img src="imgs/logo/logo.png" alt="SweetAlert2">
   </a>
 </p>
-<p align="center">
-A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAVASCRIPT'S POPUP BOXES FOR LARAVEL
+<p align="center" style="text-transform: capitalize;font-size: 16px;font-weight: 500;">
+Laravel Sweet Alert is a package for Laravel provides an easy way to display alert messages using the <a href="https://sweetalert2.github.io/">SweetAlert2</a> library.
 </p>
 <p align="center">
     <img src="imgs/sweetalert.gif" width="562" height="388">
