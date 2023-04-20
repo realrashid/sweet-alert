@@ -1,7 +1,7 @@
 {
     "name": "realrashid/sweet-alert",
     "type": "library",
-    "description": "A BEAUTIFUL, RESPONSIVE, CUSTOMIZABLE, ACCESSIBLE (WAI-ARIA) REPLACEMENT FOR JAVASCRIPT'S POPUP BOXES FOR LARAVEL BY RASHID ALI",
+    "description": "Laravel Sweet Alert Is A Package For Laravel Provides An Easy Way To Display Alert Messages Using The SweetAlert2 Library.",
     "keywords": [
         "laravel",
         "laravel-package",
@@ -29,7 +29,7 @@
         "docs": "https://realrashid.github.io/sweet-alert/"
     },
     "require": {
-        "php": "^7.2|^8.0",
+        "php": "^7.2|^8.0|^8.1",
         "laravel/framework": "^5.6|^6.0|^7.0|^8.0|^9.0|^9.11|9.14.*|^10.0"
     },
     "require-dev": {
