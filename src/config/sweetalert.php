@@ -163,6 +163,22 @@ return [
     'show_close_button' => env('SWEET_ALERT_CLOSE_BUTTON', false),
 
     /*
+    |-----------------------------------------------------------------------
+    | Confirm/Cancel Button Text
+    |-----------------------------------------------------------------------
+    | Change the default text of the modal buttons.
+    | The texts translations will be handled by Laravel at runtime.
+    | This is for the all Modal windows.
+    | For specific modal just use the confirmButtonText() and
+    | cancelButtonText() helper methods.
+    */
+
+    'button_text' => [
+        'confirm' => env('SWEET_ALERT_CONFIRM_BUTTON_TEXT', 'OK'),
+        'cancel' => env('SWEET_ALERT_CANCEL_BUTTON_TEXT', 'Cancel'),
+    ],
+
+    /*
     |--------------------------------------------------------------------------
     | Toast position
     |--------------------------------------------------------------------------
