@@ -149,6 +149,10 @@ class Toaster
             unset($this->config['timer']);
         }
 
+        if (array_key_exists('showConfirmButton', $this->config)) {
+            unset($this->config['showConfirmButton']);
+        }
+
 
         $this->flash('delete');
         return $this;
