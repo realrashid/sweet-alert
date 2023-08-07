@@ -2,6 +2,11 @@
 
 All notable changes to `sweet-alert` will be documented in this file.
 
+## v7.1.0 - 2023-08-08
+- Upgraded SweetAlert2 to latest version
+- Bug Fixes
+- Docs Updated
+
 ## v7.0.0 - 2023-04-20
 - Added confirmDelete function
 - Added themes feature
