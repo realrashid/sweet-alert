@@ -22,6 +22,8 @@ onClick="ga('send', 'event', 'Click Event', 'Click', 'Support me on Patreon');">
 onClick="ga('send', 'event', 'Click Event', 'Click', 'License');"><img src="https://poser.pugx.org/realrashid/sweet-alert/license.svg" alt="License"></a>
 </p>
 
+<a href="https://www.producthunt.com/posts/laravel-sweetalert?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-laravel&#0045;sweetalert" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=178953&theme=light" alt="Laravel&#0032;SweetAlert - A&#0032;BEAUTIFUL&#0044;RESPONSIVE&#0044;CUSTOMIZABLE&#0032;POPUP&#0032;BOXES&#0032;FOR&#0032;LARAVEL | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 # Sponsors
 
 Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
