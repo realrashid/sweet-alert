@@ -2,14 +2,47 @@
 
 ### Using the Middleware
 
-First thing first
-Let register the middleware in web middleware groups by simply adding the middleware class
+#### Registering the Middleware
 
-```php
-\RealRashid\SweetAlert\ToSweetAlert::class,
-```
+First, you need to register the middleware in the `web` middleware group. This allows the middleware to be applied to web routes.
 
-into the `$middlewareGroups` of your `app/Http/Kernel.php` file.
+1. Open your `app/Http/Kernel.php` file.
+
+2. Find the `$middlewareGroups` array. Within this array, locate the `'web'` middleware group.
+
+3. Add `\RealRashid\SweetAlert\ToSweetAlert::class` to the list of middleware in the `'web'` group:
+
+   ```php
+   // app/Http/Kernel.php
+
+   protected $middlewareGroups = [
+       'web' => [
+           // Other middleware...
+           \RealRashid\SweetAlert\ToSweetAlert::class,
+       ],
+   ];
+   ```
+
+   This registers the `ToSweetAlert` middleware for all routes in the `web` middleware group.
+
+#### Adding Middleware for Laravel 11
+
+If you're using Laravel 11 specifically, you may need to adjust middleware usage as follows:
+
+1. Navigate to your `bootstrap/app.php` file.
+
+2. Locate where middleware is defined, typically inside the `withMiddleware` method call.
+
+3. Modify the middleware setup to include `ToSweetAlert::class` specifically for the `web` middleware group:
+
+   ```php
+   // bootstrap/app.php
+
+   $middleware->web(append: [
+        \RealRashid\SweetAlert\ToSweetAlert::class,
+    ]);
+   ```
+   This ensures that the `ToSweetAlert` middleware is applied correctly within the context of Laravel 11's middleware handling.
 
 ### Error messages auto displaying
 
