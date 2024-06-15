@@ -13,26 +13,28 @@
 
     @if (Session::has('alert.delete') || Session::has('alert.config'))
         <script>
-            @if (Session::has('alert.delete'))
-                document.addEventListener('click', function(event) {
-                    if (event.target.matches('[data-confirm-delete]')) {
-                        event.preventDefault();
-                        Swal.fire({!! Session::pull('alert.delete') !!}).then(function(result) {
-                            if (result.isConfirmed) {
-                                var form = document.createElement('form');
-                                form.action = event.target.href;
-                                form.method = 'POST';
-                                form.innerHTML = `
+            document.addEventListener('click', function(event) {
+                // Check if the clicked element or its parent has the attribute
+                var target = event.target;
+                var confirmDeleteElement = target.closest('[data-confirm-delete]');
+
+                if (confirmDeleteElement) {
+                    event.preventDefault();
+                    Swal.fire({!! Session::pull('alert.delete') !!}).then(function(result) {
+                        if (result.isConfirmed) {
+                            var form = document.createElement('form');
+                            form.action = confirmDeleteElement.href;
+                            form.method = 'POST';
+                            form.innerHTML = `
                             @csrf
-                                @method('DELETE')
-                                `;
-                                document.body.appendChild(form);
-                                form.submit();
-                            }
-                        });
-                    }
-                });
-            @endif
+                            @method('DELETE')
+                        `;
+                            document.body.appendChild(form);
+                            form.submit();
+                        }
+                    });
+                }
+            });
 
             @if (Session::has('alert.config'))
                 Swal.fire({!! Session::pull('alert.config') !!});
