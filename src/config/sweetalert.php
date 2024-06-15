@@ -45,8 +45,6 @@ return [
     | If you want to handle the sweet alert js package by yourself
     | (for eg. you might want to use laravel mix) then this can be
     | handy.
-    | If you set always load js to true & never load js to false,
-    | it's going to prioritize the never load js.
     |
     | alwaysLoadJs = true  & neverLoadJs = true  => js will not be loaded
     | alwaysLoadJs = true  & neverLoadJs = false => js will be loaded
