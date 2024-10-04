@@ -11,12 +11,13 @@
         <script src="{{ $cdn ?? asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
     @endif
 
-    @if (Session::has('alert.delete') || Session::has('alert.config'))
+    @if (Session::has('alert.delete') || Session::has('alert.config') || Session::has('alert.post'))
         <script>
             document.addEventListener('click', function(event) {
                 // Check if the clicked element or its parent has the attribute
                 var target = event.target;
                 var confirmDeleteElement = target.closest('[data-confirm-delete]');
+                var confirmPaiement = target.closest('[data-confirm-paiement]');
 
                 if (confirmDeleteElement) {
                     event.preventDefault();
@@ -31,6 +32,23 @@
                         `;
                             document.body.appendChild(form);
                             form.submit();
+                        }
+                    });
+                }
+                if (confirmPaiement) {
+                    event.preventDefault();
+                    Swal.fire({!! Session::pull('alert.post') !!}).then(function(result) {
+                        if (result.isConfirmed) {
+                            var form = document.createElement('form');
+                            form.action = confirmPaiement.href;
+                            form.method = 'POST';
+                            form.innerHTML = `
+                            @csrf
+                            @method('POST')
+                        `;
+                            document.body.appendChild(form);
+                            form.submit();
+                            console.log(form);
                         }
                     });
                 }

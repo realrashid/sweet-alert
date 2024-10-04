@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'theme' => env('SWEET_ALERT_THEME', 'default'),
+    'theme' => env('SWEET_ALERT_THEME', 'dark'),
 
     /*
     |--------------------------------------------------------------------------
@@ -262,6 +262,7 @@ return [
     'confirm_delete_show_close_button' => env('SWEET_ALERT_CONFIRM_DELETE_SHOW_CLOSE_BUTTON', false),
     'confirm_delete_icon' => env('SWEET_ALERT_CONFIRM_DELETE_ICON', 'warning'),
     'confirm_delete_show_loader_on_confirm' => env('SWEET_ALERT_CONFIRM_DELETE_SHOW_LOADER_ON_CONFIRM', true),
+    'confirm_post_confirm_button_text' => env('SWEET_ALERT_CONFIRM_DELETE_CONFIRM_BUTTON_TEXT', 'Yes, I confirm!'),
 
 
 ];

@@ -58,3 +58,27 @@ if (!function_exists('confirmDelete')) {
         return $alert;
     }
 }
+
+if (!function_exists('confirmPost')) {
+    function confirmPost($title = '', $text = '')
+    {
+        $alert = app('alert');
+        if (!is_null($title)) {
+            return $alert->confirmPost($title, $text);
+        }
+        return $alert;
+    }
+}
+
+if (!function_exists('confirmPut')) {
+
+    function confirmPut($title = '', $text = '')
+    {
+        $alert = app('alert');
+        if (!is_null($title)) {
+            return $alert->confirmDelete($title, $text);
+        }
+        return $alert;
+    }
+}
+

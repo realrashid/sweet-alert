@@ -170,6 +170,38 @@ class Toaster
     }
 
 
+    public function confirmPost($title, $text = null)
+    {
+        // Set the configuration options for the confirmation popup
+        $this->config['title'] = $title;
+        if (!is_null($text)){
+            $this->config['text'] = $text;
+        }
+
+        $this->config['showCloseButton'] = config('sweetalert.confirm_delete_show_close_button');
+        $this->config['showCancelButton'] = config('sweetalert.confirm_delete_show_cancel_button');
+        $this->config['confirmButtonText'] = config('sweetalert.confirm_post_confirm_button_text');
+        $this->config['cancelButtonText'] = config('sweetalert.confirm_delete_cancel_button_text');
+        $this->config['confirmButtonColor'] = config('sweetalert.confirm_delete_confirm_button_color');
+        $this->config['icon'] = config('sweetalert.confirm_delete_icon');
+        $this->config['showLoaderOnConfirm'] = config('sweetalert.confirm_delete_show_loader_on_confirm');
+        $this->config['allowEscapeKey'] = false;
+        $this->config['allowOutsideClick'] = false;
+
+        if (array_key_exists('timer', $this->config)) {
+            unset($this->config['timer']);
+        }
+
+        if (array_key_exists('showConfirmButton', $this->config)) {
+            unset($this->config['showConfirmButton']);
+        }
+
+
+        $this->flash('post');
+        return $this;
+    }
+
+
     /**
      * Display a success typed alert message with a text and a title.
      *
