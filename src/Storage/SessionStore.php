@@ -19,4 +19,12 @@ interface SessionStore
      * @param $data
      */
     public function put($name, $data);
+
+    /**
+     * Get data from the session.
+     *
+     * @param $name
+     * @return mixed
+     */
+    public function get($name);
 }
