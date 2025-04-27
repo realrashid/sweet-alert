@@ -42,27 +42,14 @@ class AlertSessionStore implements SessionStore
         $this->session->put($key, $data);
     }
 
-    // /**
-    //  * Flash multiple key/value pairs.
-    //  *
-    //  * @param  array  $data
-    //  * @return void
-    //  */
-    // public function flashMany(array $data)
-    // {
-    //     foreach ($data as $key => $value) {
-    //         $this->flash($key, $value);
-    //     }
-    // }
-    //
-    // /**
-    //  * Get a value from session storage.
-    //  *
-    //  * @param  string $key
-    //  * @return string
-    //  */
-    // public function get($key)
-    // {
-    //     return $this->session->get($key);
-    // }
+    /**
+     * Get a value from session storage.
+     *
+     * @param  string $key
+     * @return mixed
+     */
+    public function get($key)
+    {
+        return $this->session->get($key);
+    }
 }
