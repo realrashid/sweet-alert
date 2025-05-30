@@ -93,7 +93,7 @@ alert()->html('<i>HTML</i> <u>example</u>'," You can use <b>bold text</b>, <a hr
 #### Toast
 
 ```php
-toast('Your Post as been submited!','success');
+toast('Your Post has been submited!','success');
 ```
 
 > Set the Default Toast Position in `config/sweetalert.php` file OR use the `position()` helper method!
