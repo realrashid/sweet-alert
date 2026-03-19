@@ -1,0 +1,5 @@
+# Ignore local planning files
+/plans/
+
+# Misc
+.DS_Store
