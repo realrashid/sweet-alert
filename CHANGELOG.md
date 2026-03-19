@@ -2,6 +2,12 @@
 
 All notable changes to `sweet-alert` will be documented in this file.
 
+## v7.3.0 - 2026-03-19
+- Added Laravel 13 Support
+- Updated bundled SweetAlert2 
+- Added Laravel Boost AI guidelines and Boost Skill
+- Docs Updated
+
 ## v7.2.0 - 2024-06-15
 - Added Laravel 11 Support
 - Upgraded SweetAlert2 to latest version
