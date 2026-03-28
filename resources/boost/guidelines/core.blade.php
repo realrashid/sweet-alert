@@ -42,7 +42,7 @@ public function destroy($id)
 3. To add client-side confirm-on-delete behavior, the package supports `data-confirm-delete` anchors. Example:
 
 ```html
-<a href="{{ route('items.destroy', $item->id) }}" data-confirm-delete>Delete</a>
+<a href="@{{ route('items.destroy', $item->id) }}" data-confirm-delete>Delete</a>
 ```
 
 When the attribute is present, the package injects a `Swal.fire({ ... })` confirmation and, if confirmed, submits a hidden form to perform the deletion.
