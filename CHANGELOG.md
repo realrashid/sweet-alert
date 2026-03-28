@@ -2,6 +2,9 @@
 
 All notable changes to `sweet-alert` will be documented in this file.
 
+## v7.3.1 - 2026-03-28
+- Fixed: Prevent Blade from compiling example route in resources/boost/guidelines/core.blade.php by escaping Blade braces in the example (use @{{ … }}). Fixes #190 — reported by @mohammedterfa.
+
 ## v7.3.0 - 2026-03-19
 - Added Laravel 13 Support
 - Updated bundled SweetAlert2 
