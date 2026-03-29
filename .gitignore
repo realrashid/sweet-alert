@@ -1,5 +1,12 @@
 # Ignore local planning files
 /plans/
 
+# Dependencies
+/vendor/
+composer.lock
+
+# Test artifacts
+.phpunit.result.cache
+
 # Misc
 .DS_Store
