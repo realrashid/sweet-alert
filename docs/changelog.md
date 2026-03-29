@@ -2,6 +2,11 @@
 
 All notable changes to `sweet-alert` will be documented in this file.
 
+## v7.3.2 - 2026-03-29
+- Laravel 12 compatibility fix for Alert facade (Closes #181)
+- Fixed: Corrected `SweetAlertServiceProvider::register()` — the `bind()` call was incorrectly passing a third argument (`ToSweetAlert` class string as `$shared`), causing `Alert::warning` and other facade methods to fail under Laravel 12's stricter container resolution
+- Added `@method` PHPDoc annotations to the `Alert` facade for full IDE and static-analysis support
+
 ## v7.3.1 - 2026-03-28
 - Fixed: Prevent Blade from compiling example route in resources/boost/guidelines/core.blade.php by escaping Blade braces in the example (use @{{ … }}). Fixes #190 — reported by @mohammedterfa.
 
