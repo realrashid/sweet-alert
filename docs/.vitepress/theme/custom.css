@@ -1,0 +1,7 @@
+/**
+ * Theme overrides — extend as needed (see Cart docs theme).
+ */
+
+.VPFooter .message {
+    line-height: 1.6;
+}

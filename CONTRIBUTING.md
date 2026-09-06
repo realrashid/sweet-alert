@@ -1,53 +1,62 @@
 # Contributing
 
-Contributions are **welcome** and will be fully **credited**.
+Thank you for considering contributing to the Laravel SweetAlert package!
 
-Please read and understand the contribution guide before creating an issue or pull request.
+## Code of Conduct
 
-## Etiquette
+This project follows a code of conduct to ensure a welcoming community.
 
-This project is open source, and as such, the maintainers give their free time to build and maintain the source code
-held within. They make the code freely available in the hope that it will be of use to other developers. It would be
-extremely unfair for them to suffer abuse or anger for their hard work.
+## How to Contribute
 
-Please be considerate towards maintainers when raising issues or presenting pull requests. Let's show the
-world that developers are civilized and selfless people.
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Write your code with tests
+4. Ensure all tests pass (`composer test`)
+5. Ensure code style is correct (`composer format`)
+6. Commit with a descriptive message
+7. Push to your branch
+8. Open a Pull Request
 
-It's the duty of the maintainer to ensure that all submissions to the project are of sufficient
-quality to benefit the project. Many developers have different skillsets, strengths, and weaknesses. Respect the maintainer's decision, and do not be upset or abusive if your submission is not used.
+## Development Setup
 
-## Viability
+```bash
+# Clone the repository
+git clone https://github.com/realrashid/sweet-alert.git
 
-When requesting or submitting new features, first consider whether it might be useful to others. Open
-source projects are used by many developers, who may have entirely different needs to your own. Think about
-whether or not your feature is likely to be used by other users of the project.
+# Install dependencies
+composer install
 
-## Procedure
+# Run tests
+composer test
 
-Before filing an issue:
+# Run tests with coverage
+composer test-coverage
 
-- Attempt to replicate the problem, to ensure that it wasn't a coincidental incident.
-- Check to make sure your feature suggestion isn't already present within the project.
-- Check the pull requests tab to ensure that the bug doesn't have a fix in progress.
-- Check the pull requests tab to ensure that the feature isn't already in progress.
+# Format code
+composer format
 
-Before submitting a pull request:
+# Static analysis
+composer analyse
+```
 
-- Check the codebase to ensure that your feature doesn't already exist.
-- Check the pull requests to ensure that another person hasn't already submitted the feature or fix.
+## Coding Standards
 
-## Requirements
+- Follow PSR-12 coding standards
+- Use Laravel Pint for automated code style enforcement
+- Write Pest PHP tests for all new features
+- Use PHP 8.3+ features (enums, readonly properties, etc.)
+- Follow the fluent builder pattern for API methods
+- All builder methods must return `$this` for chaining
 
-If the project maintainer has any additional requirements, you will find them listed here.
+## Pull Request Process
 
-- **[PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)** - The easiest way to apply the conventions is to install [PHP Code Sniffer](https://pear.php.net/package/PHP_CodeSniffer).
+1. Update the CHANGELOG.md with your changes
+2. Add tests for any new functionality
+3. Ensure all existing tests still pass
+4. Update documentation if applicable
 
-- **Document any change in behaviour** - Make sure the `README.md` and any other relevant documentation are kept up-to-date.
+## Security Vulnerabilities
 
-- **Consider our release cycle** - We try to follow [SemVer v2.0.0](https://semver.org/). Randomly breaking public APIs is not an option.
+If you discover a security vulnerability, please email realrashid05@gmail.com instead of opening a public issue.
 
-- **One pull request per feature** - If you want to do more than one thing, send multiple pull requests.
-
-- **Send coherent history** - Make sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please [squash them](https://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages) before submitting.
-
-**Happy coding**!
+Made with ❤️ from Pakistan

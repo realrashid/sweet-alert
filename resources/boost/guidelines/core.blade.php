@@ -1,58 +1,175 @@
 {{--
-  Laravel Boost third-party package AI guideline for realrashid/sweet-alert
-  Provides concise instructions and examples for AI agents to integrate this package.
+  Laravel Boost guideline for realrashid/sweet-alert (v8).
+
+  This file is compiled by Blade, so anything in an example that Blade would
+  act on has to be escaped: {{ }} as @{{ }} and directives as @@sweetAlert,
+  @@csrf and so on. Otherwise the compiler evaluates them and the guideline
+  ships with a rendered CSRF field in it instead of the code to copy.
 --}}
 
 # Sweet Alert (realrashid/sweet-alert)
 
-This package provides Blade helpers and published assets to easily display SweetAlert2 popups and toasts from Laravel applications. It publishes view templates, configuration, and JavaScript/CSS assets so applications can customize themes and loading behavior.
+SweetAlert2 for Laravel, driven from PHP. Alerts are built with a fluent
+builder, flashed to the session, and rendered by a Blade directive after the
+redirect — the same round trip a normal Laravel form makes.
 
-## Features
+Version 8 is a complete rewrite. If you are looking at code that uses the v7
+API, run `php artisan alert:upgrade --dry-run` rather than editing it by hand.
 
-- Helper API: `alert()` helper and `RealRashid\SweetAlert\Facades\Alert` facade for dispatching alerts from controllers.
-- Publishable resources: view templates, config, and bundled JS assets (publish tags listed below).
-- Blade view integration: a Blade view injects `Swal.fire(...)` calls when `Session::has('alert.config')` or `alert()->delete()` flows are used.
+## Setup
 
-## Publishable tags
+```bash
+composer require realrashid/sweet-alert
+php artisan alert:install
+```
 
-- `sweetalert-view` — publishes `resources/views/vendor/sweetalert`
-- `sweetalert-config` — publishes `config/sweetalert.php`
-- `sweetalert-asset` — publishes the JS/CSS assets to `public/vendor/sweetalert`
+Then add the directive to the layout, immediately before the closing body tag:
 
-Example: `php artisan vendor:publish --provider="RealRashid\SweetAlert\SweetAlertServiceProvider" --tag="sweetalert-config"`
+```blade
+<body>
+    ...
+    @@sweetAlert
+</body>
+```
 
-## Typical usage
+Publish tags, if you need them individually: `sweetalert-config`,
+`sweetalert-views`, `sweetalert-asset`. Prefer the dedicated command:
 
-1. Install the package via Composer and (optionally) publish assets.
+```bash
+php artisan alert:publish --config
+```
+
+## Showing an alert
+
+The five icon shortcuts display immediately when given a title. This is the
+common case and needs no `flash()`:
 
 ```php
-// In a controller
 use RealRashid\SweetAlert\Facades\Alert;
 
-public function destroy($id)
+Alert::success('Saved', 'Your changes have been stored.');
+Alert::error('Something broke', 'We could not reach the payment gateway.');
+Alert::warning('Careful', 'This affects 42 records.');
+Alert::info('Heads up', 'Exports now run in the background.');
+Alert::question('Still there?', 'Your session expires in five minutes.');
+
+return back();
+```
+
+Anything chained onto those keeps working — the session is kept in step:
+
+```php
+Alert::success('Auto-closing', 'Gone in three seconds.')
+    ->timer(3000)
+    ->timerProgressBar();
+```
+
+## Composing an alert explicitly
+
+When you build one up rather than using a shortcut, finish with `flash()`:
+
+```php
+Alert::title('Order Summary')
+    ->html('<p>Order <b>#12345</b> has shipped.</p>')
+    ->success()
+    ->flash();
+```
+
+`Alert::make()` gives you a builder independent of the shared instance. It
+never flashes on its own.
+
+## Toasts
+
+```php
+Alert::toast('Profile updated', 'success')->flash();
+
+Alert::toast('Saved!')->success()->position('bottom-end')->flash();
+```
+
+## Inputs
+
+An input alert never flashes itself. Always end the chain with `flash()`:
+
+```php
+use RealRashid\SweetAlert\Enums\InputType;
+
+Alert::input('What is your email?', InputType::Email)
+    ->inputPlaceholder('you@example.com')
+    ->submitTo(route('profile.email'), 'POST', 'email')
+    ->flash();
+```
+
+`submitTo()` is how the typed value reaches the server. Without it the dialog
+closes and the value is gone.
+
+## Confirming an action
+
+Put the attribute on the link or form. Nothing needs to be flashed first, and
+no JavaScript is written by hand:
+
+```blade
+<a href="@{{ route('posts.destroy', $post) }}" data-confirm-delete>Delete</a>
+
+<a href="@{{ route('posts.publish', $post) }}"
+   data-confirm data-confirm-method="PUT">Publish</a>
+
+<form method="POST" action="@{{ route('orders.refund', $order) }}" data-confirm>
+    @@csrf
+    <button type="submit">Refund</button>
+</form>
+```
+
+Override the copy per element with `data-confirm-title`, `data-confirm-text`,
+`data-confirm-icon`, `data-confirm-button` and `data-confirm-cancel`. On
+confirm the package builds a form carrying the CSRF token and the right method
+and submits it.
+
+`Alert::confirmDelete($title, $text)` still works and customises the dialog for
+that one request.
+
+## Enums
+
+`AlertType`, `InputType` and `Position` are accepted anywhere their string
+equivalent is:
+
+```php
+use RealRashid\SweetAlert\Enums\Position;
+
+Alert::toast('Saved')->success()->position(Position::BottomEnd)->flash();
+```
+
+## Livewire and Inertia
+
+Livewire components use the trait, which dispatches a browser event instead of
+relying on a session that a Livewire update will not re-read:
+
+```php
+use RealRashid\SweetAlert\Concerns\SweetAlertTrait;
+
+class SavePost extends Component
 {
-    // Perform deletion logic...
-    Alert::success('Deleted', 'Record was deleted successfully');
-    return redirect()->route('items.index');
+    use SweetAlertTrait;
+
+    public function save(): void
+    {
+        $this->dispatchAlert($this->sweetAlert()->success('Saved'));
+    }
 }
 ```
 
-2. In Blade, the package's `alert` view will automatically enqueue the required JS/CSS depending on `config('sweetalert')` settings. The view uses `asset('vendor/sweetalert/sweetalert.all.js')` by default.
+For Inertia, add `RealRashid\SweetAlert\Http\Middleware\ShareSweetAlertWithInertia`
+to the web middleware group.
 
-3. To add client-side confirm-on-delete behavior, the package supports `data-confirm-delete` anchors. Example:
+## Things that are commonly got wrong
 
-```html
-<a href="@{{ route('items.destroy', $item->id) }}" data-confirm-delete>Delete</a>
-```
-
-When the attribute is present, the package injects a `Swal.fire({ ... })` confirmation and, if confirmed, submits a hidden form to perform the deletion.
-
-## Configuration hints
-
-- `alwaysLoadJS`, `neverLoadJS` — controls whether the bundled JS is loaded automatically.
-- `theme` — controls which SweetAlert2 theme to load from CDN when set.
-
-## Notes for Laravel 13
-
-- The package advertises Laravel 13 compatibility; ensure your project PHP requirement matches Laravel 13's minimum if you upgrade the application.
-- This file is short and prescriptive so AI agents can provide correct integration snippets and publishing commands.
+- `html()` takes **one** argument in v8. In v7 it was `html($title, $code, $icon)`.
+  PHP ignores the surplus arguments, so a v7 call does not error — it silently
+  renders nothing. Use `title()` for the title.
+- `view()` takes the **view name first**: `view($view, $data, $mergeData)`.
+  In v7 the title came first.
+- `Alert::input(...)` and `Alert::make()` do not flash. End with `flash()`.
+- Do not set `background()`, `width()` or `padding()` unless you mean to
+  override the theme — SweetAlert2 turns each into an inline style that no
+  theme stylesheet can beat.
+- `@@sweetAlert` goes at the end of the body, not in the head.
+- The container binding is `app('alert')`. `app('sweet-alert')` was v7.

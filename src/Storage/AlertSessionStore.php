@@ -2,54 +2,53 @@
 
 namespace RealRashid\SweetAlert\Storage;
 
-use Illuminate\Session\Store;
+use Illuminate\Contracts\Session\Session;
+use RealRashid\SweetAlert\Contracts\SessionStoreInterface;
 
-class AlertSessionStore implements SessionStore
+class AlertSessionStore implements SessionStoreInterface
 {
     /**
-     * @var Store
+     * Create a new alert session store instance.
      */
-    private $session;
-
-    public function __construct(Store $session)
-    {
-        $this->session = $session;
-    }
+    public function __construct(protected Session $session) {}
 
     /**
-     * Set a session key and value.
-     *
-     * @param  mixed $key
-     * @param  string $data
-     *
-     * @return mixed
+     * Flash a key/value pair to the session.
      */
-    public function flash($key, $data)
+    public function flash(string $key, mixed $data): void
     {
         $this->session->flash($key, $data);
     }
 
     /**
-     * Put a session key and value.
-     *
-     * @param  mixed $key
-     * @param  string $data
-     *
-     * @return mixed
+     * Put a key/value pair in the session.
      */
-    public function put($key, $data)
+    public function put(string $key, mixed $data): void
     {
         $this->session->put($key, $data);
     }
 
     /**
-     * Get a value from session storage.
-     *
-     * @param  string $key
-     * @return mixed
+     * Get a value from the session.
      */
-    public function get($key)
+    public function get(string $key, mixed $default = null): mixed
     {
-        return $this->session->get($key);
+        return $this->session->get($key, $default);
+    }
+
+    /**
+     * Check if a key exists in the session.
+     */
+    public function has(string $key): bool
+    {
+        return $this->session->has($key);
+    }
+
+    /**
+     * Remove a key from the session.
+     */
+    public function forget(string $key): void
+    {
+        $this->session->forget($key);
     }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.0/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true">
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>tests/Builders</directory>
+            <directory>tests/Concerns</directory>
+            <directory>tests/Enums</directory>
+            <directory>tests/Http</directory>
+            <directory>tests/Legacy</directory>
+            <directory>tests/Storage</directory>
+            <directory>tests/Support</directory>
+        </testsuite>
+        <testsuite name="Architecture">
+            <file>tests/ArchTest.php</file>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>src</directory>
+        </include>
+    </source>
+</phpunit>

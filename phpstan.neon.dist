@@ -1,0 +1,9 @@
+parameters:
+    level: 5
+    paths:
+        - src
+        # SweetAlertTrait is meant to be used by the application (a Livewire
+        # component), so its only usage inside this repo is the test that
+        # exercises it. Analysing that test is what lets PHPStan see the trait.
+        - tests/Concerns
+    tmpDir: build/phpstan

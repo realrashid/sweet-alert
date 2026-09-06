@@ -1,12 +1,17 @@
-# Ignore local planning files
-/plans/
-
-# Dependencies
-/vendor/
+/node_modules
+docs/node_modules
+docs/.vitepress/dist
+docs/.vitepress/cache
+/vendor
+composer.phar
 composer.lock
-
-# Test artifacts
 .phpunit.result.cache
-
-# Misc
-.DS_Store
+.phpcs-cache
+coverage
+build
+.idea
+.vscode
+*.cache
+phpunit.xml
+.phpunit.cache
+testbench.yaml

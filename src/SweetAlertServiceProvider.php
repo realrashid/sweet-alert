@@ -2,107 +2,143 @@
 
 namespace RealRashid\SweetAlert;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use RealRashid\SweetAlert\Builders\AlertBuilder;
+use RealRashid\SweetAlert\Builders\InputBuilder;
+use RealRashid\SweetAlert\Builders\ToastBuilder;
+use RealRashid\SweetAlert\Commands\InstallCommand;
+use RealRashid\SweetAlert\Commands\PublishCommand;
+use RealRashid\SweetAlert\Commands\UpgradeCommand;
+use RealRashid\SweetAlert\Contracts\SessionStoreInterface;
+use RealRashid\SweetAlert\Storage\AlertSessionStore;
+use RealRashid\SweetAlert\Support\AlertFlasher;
 
+/**
+ * SweetAlertServiceProvider - Laravel service provider for the SweetAlert package.
+ *
+ * This provider registers the package's services, bindings, commands,
+ * views, configuration, and publishable assets into the Laravel
+ * application container.
+ */
 class SweetAlertServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap the package services.
-     *
-     * @return void
-     * @author Rashid Ali <realrashid05@gmail.com>
+     * Bootstrap any package services.
      */
-    public function boot()
+    public function boot(): void
     {
-        /*
-         * Registering the helper methods to package
-         */
         $this->registerHelpers();
-
-        /*
-        * Registering the Package Views
-        */
         $this->registerViews();
+        $this->registerBladeDirectives();
 
-        // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
             $this->registerPublishing();
+            $this->registerCommands();
         }
     }
 
     /**
-     * Register helpers file
-     *
-     * @return void
-     * @author Rashid Ali <realrashid05@gmail.com>
+     * Register any package services.
      */
-    public function registerHelpers()
+    public function register(): void
     {
-        // Load the helpers in src/functions.php
-        if (file_exists($file = __DIR__ . '/functions.php')) {
+        $this->mergeConfigFrom(__DIR__.'/../config/sweet-alert.php', 'sweetalert');
+
+        // Bind the session store interface to the implementation
+        $this->app->bind(
+            SessionStoreInterface::class,
+            fn ($app) => new AlertSessionStore($app->make('session.store'))
+        );
+
+        // Register the AlertFlasher as a singleton
+        $this->app->singleton(AlertFlasher::class, function ($app) {
+            return new AlertFlasher($app->make(SessionStoreInterface::class));
+        });
+
+        // Register the main 'alert' binding (backward compatibility + new API)
+        $this->app->singleton('alert', function ($app) {
+            return $app->make(AlertBuilder::class);
+        });
+
+        // Register the AlertBuilder
+        $this->app->singleton(AlertBuilder::class, function ($app) {
+            return new AlertBuilder($app->make(AlertFlasher::class));
+        });
+
+        // Register the ToastBuilder
+        $this->app->bind(ToastBuilder::class, function ($app) {
+            return new ToastBuilder($app->make(AlertFlasher::class));
+        });
+
+        // Register the InputBuilder
+        $this->app->bind(InputBuilder::class, function ($app) {
+            return new InputBuilder($app->make(AlertFlasher::class));
+        });
+    }
+
+    /**
+     * Register the helper functions.
+     */
+    protected function registerHelpers(): void
+    {
+        if (file_exists($file = __DIR__.'/functions.php')) {
             require $file;
         }
     }
 
     /**
      * Register the package's views.
-     *
-     * @return void
-     * @author Rashid Ali <realrashid05@gmail.com>
      */
-    private function registerViews()
+    protected function registerViews(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'sweetalert');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'sweetalert');
     }
 
     /**
-    * Register the package's publishable resources.
-    *
-    * @return void
-    * @author Rashid Ali <realrashid05@gmail.com>
-    */
-    private function registerPublishing()
+     * Register the package's Blade directives.
+     *
+     * Provides a clean sweetAlert directive as the recommended way to include
+     * SweetAlert2 in your layout, replacing the older include of the
+     * sweetalert::alert view.
+     */
+    protected function registerBladeDirectives(): void
     {
-        $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/sweetalert')
-        ], 'sweetalert-view');
+        Blade::directive('sweetAlert', function () {
+            return "<?php echo \$__env->make('sweetalert::alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
+        });
+    }
 
+    /**
+     * Register the package's publishable resources.
+     */
+    protected function registerPublishing(): void
+    {
+        // Publish config — filename must match the mergeConfigFrom key 'sweetalert'
         $this->publishes([
-            __DIR__ . '/config/sweetalert.php' => config_path('sweetalert.php')
+            __DIR__.'/../config/sweet-alert.php' => config_path('sweetalert.php'),
         ], 'sweetalert-config');
 
+        // Publish views
         $this->publishes([
-            __DIR__ . '/../resources/js' => public_path('vendor/sweetalert')
+            __DIR__.'/../resources/views' => resource_path('views/vendor/sweetalert'),
+        ], 'sweetalert-views');
+
+        // Publish JS assets
+        $this->publishes([
+            __DIR__.'/../resources/js' => public_path('vendor/sweetalert'),
         ], 'sweetalert-asset');
     }
 
     /**
-     * Register the application services.
-     *
-     * @return void
-     * @author Rashid Ali <realrashid05@gmail.com>
+     * Register the package's artisan commands.
      */
-    public function register()
+    protected function registerCommands(): void
     {
-        // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__ . '/config/sweetalert.php', 'sweetalert');
-
-        // Binding required classes to app
-        $this->app->bind(
-            'RealRashid\SweetAlert\Storage\SessionStore',
-            'RealRashid\SweetAlert\Storage\AlertSessionStore'
-        );
-
-        // Register the main class to use with the facade
-        $this->app->singleton('alert', function ($app) {
-            return $this->app->make(Toaster::class);
-        });
-
-        if ($this->app->runningInConsole()) {
-            // Registering package commands.
-            $this->commands([
-                Console\PublishCommand::class,
-            ]);
-        }
+        $this->commands([
+            InstallCommand::class,
+            PublishCommand::class,
+            UpgradeCommand::class,
+        ]);
     }
 }
