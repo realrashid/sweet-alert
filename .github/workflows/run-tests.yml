@@ -43,11 +43,28 @@ jobs:
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
+      - name: Execute tests
+        run: vendor/bin/pest
+
+  quality:
+    runs-on: ubuntu-latest
+    name: Code style and static analysis
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+          coverage: none
+
+      - name: Install dependencies
+        run: composer update --prefer-dist --no-interaction
+
       - name: Check code style
         run: vendor/bin/pint --test
 
       - name: Run static analysis
         run: vendor/bin/phpstan analyse
-
-      - name: Execute tests
-        run: vendor/bin/pest

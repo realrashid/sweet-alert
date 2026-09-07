@@ -102,6 +102,10 @@ All notable changes to the Laravel SweetAlert package will be documented in this
 - `width`, `padding` and `background` are no longer sent unless you set them, so the active theme
   controls the popup. Set any of them per alert or in the config to override the theme deliberately.
 - `position()`, `width()`, `padding()` and `background()` accept no arguments again, as they did in v7.
+- Code style and static analysis run in their own job now. They were part of the
+  dependency matrix, so the `prefer-lowest` jobs checked the code against Pint
+  v1.0.0 from 2022 and failed on rules that no longer exist. Neither check varies
+  with the Laravel version.
 - CI ran no `prefer-lowest` job at all — every combination was excluded. The matrix now covers
   Laravel 11, 12 and 13 at both lowest and stable.
 - The docs site shipped two VitePress configs; the one VitePress actually loaded had no `base`, so
