@@ -2,9 +2,84 @@
 
 All notable changes to the Laravel SweetAlert package will be documented in this file.
 
+## v8.0.0 — a complete rewrite - 2026-09-07
+
+Version 8 rebuilds the package around a fluent, Laravel-native builder. The v7 API was one 700-line `Toaster` class; v8 is three purpose-built builders, five composable concerns, three enums, and a test suite that covers behaviour rather than the shape of the code.
+
+**Your existing code keeps working.** `alert()->success()`, `toast()` and `confirmDelete()` display immediately the way they always did. A survey of five real applications using this package found `Alert::success()` in 52 files and none of the changed signatures anywhere.
+
+### Highlights
+
+- `AlertBuilder`, `ToastBuilder` and `InputBuilder`, each with its own defaults
+- Full SweetAlert2 coverage — deny buttons, progress steps, every input type, pre-confirm and pre-deny routes, per-alert themes, animations
+- PHP 8.3 enums (`AlertType`, `InputType`, `Position`) with IDE completion
+- `when()`/`unless()` and `macro()` on every builder
+- `@sweetAlert` Blade directive, replacing `@include('sweetalert::alert')`
+- Livewire v4 trait and Inertia middleware
+- Laravel Boost guideline and skill, so AI assistants write v8 rather than v7
+- VitePress documentation, Pest suite with architecture tests, Pint, PHPStan level 5
+
+### Guarded actions
+
+A dialog that can only ask a question is half a feature. v8 acts on the answer with no JavaScript on your side:
+
+```blade
+<a href="{{ route('posts.destroy', $post) }}" data-confirm-delete>Delete</a>
+
+<a href="{{ route('posts.publish', $post) }}" data-confirm data-confirm-method="PUT">Publish</a>
+
+<form method="POST" action="{{ route('orders.refund', $order) }}" data-confirm>
+    @csrf
+    <button type="submit">Refund</button>
+</form>
+
+```
+Override the copy per element with `data-confirm-title`, `-text`, `-icon`, `-button` and `-cancel`. On confirm the package builds a form with the CSRF token and the right method and submits it.
+
+`data-confirm-delete` worked this way before, but only on the request where `confirmDelete()` had been flashed — on any other render the link was an ordinary link and the browser opened the destroy URL with a GET. The listener is always present now. **Closes #174 and #183.**
+
+SweetAlert2 is fetched on the first click, so a page carrying only a guarded link ships no JavaScript until someone uses it. If it cannot be fetched, the browser's own `confirm()` is used — a guarded delete never goes through unasked because a CDN was down.
+
+### `submitTo()`
+
+The answer reaches your server instead of vanishing when the dialog closes:
+
+```php
+Alert::input('What should we call you?')
+    ->submitTo(route('profile.name'), 'POST', 'name')
+    ->flash();
+
+```
+**Closes #147.**
+
+### `topLayer()`
+
+Puts a popup in the browser's top layer, above any `z-index` — the answer to a toast rendering behind a navbar. **Closes #158.**
+
+### Upgrading
+
+```bash
+php artisan alert:upgrade --dry-run
+
+```
+The command rewrites the two methods whose signatures changed, the container binding, the moved `SessionStore`, the Blade include, and the config keys that break theming. It reads your code with PHP's own tokeniser rather than searching for text, so a `->html()` call on an unrelated object, or the old binding name inside a comment, is reported rather than edited. Nothing is written without confirmation and `vendor/` is never touched.
+
+Run against five real third-party applications it scanned 1,065 files and rewrote 16, with no false positives and no broken syntax.
+
+It exists because of `html()` specifically. v7's signature was `html($title, $code, $icon)`; v8's is `html($html)`. PHP ignores surplus arguments, so an un-migrated call does not error — it just stops working.
+
+**Two config keys to check if you published the config under v7:** `background`, `width` and `padding` are now `null` by default. SweetAlert2 applies each as an inline style that beats every stylesheet, so a `background` value means no theme can ever change the popup colour. `alert:upgrade` fixes this for you.
+
+### Requirements
+
+PHP 8.3+ and Laravel 11, 12 or 13.
+
+Full upgrade path: https://realrashid.github.io/sweet-alert/guide/upgrade-guide
+
 ## v8.0.0 - 2026-09-07
 
 ### Added
+
 - **Complete rewrite** from scratch with a modern, fluent builder pattern API
 - `image()` and `toToast()`, restored from the released API.
 - `when()` and `unless()` on every builder, so a conditional does not break the chain.
@@ -57,6 +132,7 @@ All notable changes to the Laravel SweetAlert package will be documented in this
   for you to handle. `vendor/` is never touched.
 
 ### Fixed
+
 - `data-confirm-delete` now guards a link on every page load. The listener used
   to be rendered only on the request where `confirmDelete()` had been flashed,
   so on any other render the link was an ordinary link and the browser opened
@@ -77,8 +153,7 @@ All notable changes to the Laravel SweetAlert package will be documented in this
   already has a session alert pending — and a Livewire alert has none by
   definition. Nothing was ever registered, and nothing ever fired. The bridge is
   now emitted by the directive itself and fetches SweetAlert2 on demand. The
-  documented plain-JS door (`window.dispatchEvent(new CustomEvent('sweetalert',
-  …))`) was dead for the same reason and works now too.
+  documented plain-JS door (`window.dispatchEvent(new CustomEvent('sweetalert', …))`) was dead for the same reason and works now too.
 - **Inertia alerts now reach the page.** Three faults stacked: the middleware
   flashed after the response had already resolved its props, so the alert never
   arrived; it shared the session envelope rather than the configuration inside
@@ -115,6 +190,7 @@ All notable changes to the Laravel SweetAlert package will be documented in this
 - `phpstan.neon.dist` used `checkMissingIterableValueType`, which PHPStan 2.x rejects outright.
 
 ### Changed
+
 - Minimum PHP version requirement raised to **8.3**
 - Minimum Laravel version requirement raised to **11.0**
 - `Toaster` class replaced by `AlertBuilder` (with shim)
@@ -124,12 +200,14 @@ All notable changes to the Laravel SweetAlert package will be documented in this
 - `@include('sweetalert::alert')` still works, but `@sweetAlert` is now the recommended directive
 
 ### Removed
+
 - Support for PHP 7.2 - 8.2
 - Support for Laravel 5.6 - 10.x
 - `symfony/thanks` dev dependency
 - Monolithic `Toaster.php` class (replaced by `AlertBuilder`)
 
 ### Breaking Changes
+
 - PHP 8.3+ required (was 7.2+)
 - Laravel 11+ required (was 5.6+)
 - Session key structure changed (backward compat shim handles this)
@@ -142,31 +220,37 @@ All notable changes to the Laravel SweetAlert package will be documented in this
   those keys are nulled. `alert:upgrade` does this for you.
 
 ## v7.3.2 - 2026-03-29
+
 - Laravel 12 compatibility fix for Alert facade (Closes #181)
 - Fixed: Corrected `SweetAlertServiceProvider::register()` — the `bind()` call was incorrectly passing a third argument (`ToSweetAlert` class string as `$shared`), causing `Alert::warning` and other facade methods to fail under Laravel 12's stricter container resolution
 - Added `@method` PHPDoc annotations to the `Alert` facade for full IDE and static-analysis support
 
 ## v7.3.1 - 2026-03-28
+
 - Fixed: Prevent Blade from compiling example route in resources/boost/guidelines/core.blade.php by escaping Blade braces in the example (use @{{ … }}). Fixes #190 — reported by @mohammedterfa.
 
 ## v7.3.0 - 2026-03-19
+
 - Added Laravel 13 Support
 - Updated bundled SweetAlert2
 - Added Laravel Boost AI guidelines and Boost Skill
 - Docs Updated
 
 ## v7.2.0 - 2024-06-15
+
 - Added Laravel 11 Support
 - Upgraded SweetAlert2 to latest version
 - Bug Fixes
 - Docs Updated
 
 ## v7.1.0 - 2023-08-08
+
 - Upgraded SweetAlert2 to latest version
 - Bug Fixes
 - Docs Updated
 
 ## v7.0.0 - 2023-04-20
+
 - Added confirmDelete function
 - Added themes feature
 - Upgraded SweetAlert2 to latest version
@@ -174,16 +258,19 @@ All notable changes to the Laravel SweetAlert package will be documented in this
 - Docs Updated
 
 ## v6.0.0 - 2023-02-15
+
 - Added Laravel 10 Support
 - Bug Fixes
 - Docs Updated
 
 ## v5.1.0 - 2022-05-28
+
 - Added Laravel 9 Support
 - Bug Fixes
 - Docs Updated
 
 ## v5.0.0 - 2022-02-04
+
 - Added Laravel 9 Support
 - Bug Fixes
 - Upgraded SweetAlert2 to latest version
