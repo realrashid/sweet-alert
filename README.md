@@ -18,6 +18,13 @@ A beautiful, responsive, customizable, accessible (WAI-ARIA) replacement for Jav
 - **Laravel Boost Ready** — ships a guideline and skill so AI assistants write v8 code, not v7
 - **Guided Upgrade** — `php artisan alert:upgrade` migrates a v7 codebase for you, with `--dry-run`
 
+## See It Running
+
+[**AlertDeck**](https://github.com/realrashid/alert-deck) is a Laravel app that
+exercises every alert this package can produce — in Blade, in Livewire and in
+Inertia, plus the guarded-action attributes, all seven themes, and routes
+migrated from v7 by `alert:upgrade`.
+
 ## Quick Start
 
 ```bash
