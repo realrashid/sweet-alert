@@ -80,7 +80,7 @@ The middleware converts these into toast notifications using the toast middlewar
 
 ## Auto-Display Validation Errors
 
-By default, the middleware also converts Laravel validation errors into error toasts. When a form validation fails and the user is redirected back, the error messages are automatically displayed as a SweetAlert2 error toast:
+By default, the middleware also converts Laravel validation errors into a persistent SweetAlert2 error modal with an escaped list of messages. When a form validation fails and the user is redirected back, the errors are displayed automatically:
 
 ```php
 public function store(Request $request)
@@ -91,7 +91,7 @@ public function store(Request $request)
     ]);
 
     // If validation fails, user is redirected back
-    // and the middleware shows the errors as a toast
+    // and the middleware shows the errors in a persistent alert
 }
 ```
 

@@ -56,22 +56,19 @@ describe('flash message conversion', function () {
 });
 
 describe('validation errors', function () {
-    /*
-     * This is the most common path through the middleware — any form that
-     * fails validation goes through it — and it raised a TypeError before the
-     * alert was ever built, because getMessages() returns an array and the
-     * helper was typed as an object.
-     */
-    it('flattens a MessageBag into one alert', function () {
+    it('displays MessageBag errors in a persistent escaped HTML list', function () {
         $config = throughMiddleware(fn () => session()->flash('errors', new MessageBag([
-            'email' => ['Email is required'],
+            'email' => ['Email is <required>'],
             'name' => ['Name is too short'],
         ])));
 
         expect($config['icon'])->toBe('error')
-            ->and($config['title'])->toBe('Validation Error')
-            ->and($config['text'])->toContain('Email is required')
-            ->and($config['text'])->toContain('Name is too short');
+            ->and($config['title'])->toBe('Please fix the following')
+            ->and($config['html'])->toContain('<li>Email is &lt;required&gt;</li>')
+            ->and($config['html'])->toContain('<li>Name is too short</li>')
+            ->and($config['allowEscapeKey'])->toBeFalse()
+            ->and($config['allowOutsideClick'])->toBeFalse()
+            ->and($config)->not->toHaveKey('timer');
     });
 
     it('handles the ViewErrorBag Laravel actually flashes', function () {
@@ -81,7 +78,11 @@ describe('validation errors', function () {
 
         $config = throughMiddleware(fn () => session()->flash('errors', $bag));
 
-        expect($config['text'])->toContain('Email is required');
+        expect($config['html'])->toContain('<li>Email is required</li>');
+    });
+
+    it('does not display an empty error bag', function () {
+        expect(throughMiddleware(fn () => session()->flash('errors', new ViewErrorBag)))->toBe([]);
     });
 
     it('passes a plain string through untouched', function () {
@@ -115,8 +116,8 @@ describe('several messages at once', function () {
 
 /*
  * Verified in a browser: redirect()->with('success', ...) produces a success
- * modal, and a genuine failed validate() produces "Validation Error" with the
- * flattened messages. These pin the behaviour down.
+ * modal, and a genuine failed validate() produces a persistent error alert
+ * with the validation messages. These pin the behaviour down.
  */
 describe('plain Laravel flash keys', function () {
     it('turns a with() flash into an alert', function (string $type) {
@@ -135,7 +136,7 @@ describe('plain Laravel flash keys', function () {
             ->and($flashed['icon'] ?? null)->toBe($type);
     })->with(['success', 'error', 'warning', 'info', 'question']);
 
-    it('turns a validation error bag into one alert', function () {
+    it('turns a validation error bag into a persistent HTML alert', function () {
         session()->flush();
         session()->put('errors', new ViewErrorBag);
         session()->get('errors')->put('default', new MessageBag([
@@ -151,9 +152,11 @@ describe('plain Laravel flash keys', function () {
 
         $flashed = json_decode(session('alert')['config'] ?? '{}', true)['config'] ?? [];
 
-        expect($flashed['title'] ?? null)->toBe('Validation Error')
-            ->and($flashed['text'] ?? null)->toContain('The email field is required.')
-            ->and($flashed['text'] ?? null)->toContain('The name field is required.');
+        expect($flashed['title'] ?? null)->toBe('Please fix the following')
+            ->and($flashed['html'] ?? null)->toContain('<li>The email field is required.</li>')
+            ->and($flashed['html'] ?? null)->toContain('<li>The name field is required.</li>')
+            ->and($flashed['allowEscapeKey'] ?? null)->toBeFalse()
+            ->and($flashed['allowOutsideClick'] ?? null)->toBeFalse();
     });
 
     it('leaves validation errors alone when the option is off', function () {
