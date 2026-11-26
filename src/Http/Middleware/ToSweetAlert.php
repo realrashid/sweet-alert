@@ -4,6 +4,8 @@ namespace RealRashid\SweetAlert\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
+use Illuminate\Support\ViewErrorBag;
 
 /**
  * ToSweetAlert Middleware - Intercepts session flash data and prepares alerts.
@@ -40,11 +42,15 @@ class ToSweetAlert
         if ($request->session()->has('errors') && config('sweetalert.middleware.auto_display_errors', true)) {
             $error = $request->session()->get('errors');
 
-            if (! is_string($error)) {
-                $error = $this->getErrors($error->getMessages());
+            if ($error instanceof ViewErrorBag || $error instanceof MessageBag) {
+                if ($error->any()) {
+                    app('alert')
+                        ->error(__('Please fix the following'))
+                        ->html($this->getErrors($error))
+                        ->persistent()
+                        ->flash();
+                }
             }
-
-            app('alert')->error('Validation Error', $error)->flash();
         }
 
         // Handle toast session keys (backward compatibility)
@@ -62,20 +68,14 @@ class ToSweetAlert
     }
 
     /**
-     * Get validation errors as a formatted string.
+     * Format validation errors as an HTML list.
      */
-    /**
-     * Flatten a validation error bag into a single message.
-     *
-     * Takes an array because that is what `getMessages()` returns. Typing it
-     * as an object meant every failed validation raised a TypeError before the
-     * alert was ever built, which is the most common path through this
-     * middleware.
-     *
-     * @param  array<string, array<int, string>>|object  $errors
-     */
-    private function getErrors(array|object $errors): string
+    private function getErrors(ViewErrorBag|MessageBag $errors): string
     {
-        return collect($errors)->flatten()->implode("\n");
+        $items = collect($errors->all())
+            ->map(fn ($message) => '<li>'.e($message).'</li>')
+            ->implode('');
+
+        return '<ul style="text-align:left;margin:0;padding-left:1.25rem;">'.$items.'</ul>';
     }
 }
